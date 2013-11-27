@@ -1,4 +1,4 @@
-cinnamon-desktop (2.0.4-1) UNRELEASED; urgency=low
+cinnamon-desktop (2.0.4-1~1) UNRELEASED; urgency=low
 
   * Initial release.
   * New patch: po_gnome-desktop_to_cinnamon-desktop.diff
