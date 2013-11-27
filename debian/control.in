@@ -71,3 +71,14 @@ Description: Introspection data for CinnamonDesktop
  desktop library functions.
  .
  This package contains the introspection data for CinnamonDesktop
+
+Package: libcinnamon-desktop-dbg
+Priority: extra
+Section: debug
+Architecture: any
+Multi-Arch: same
+Pre-Depends: ${misc:Pre-Depends}
+Depends: ${misc:Depends}, libcinnamon-desktop-dbg (= ${binary:Version})
+Description: debugging symbols for the cinnamon desktop library
+ This package contains the symbols files needed to debug the Cinnamon desktop
+ library.

@@ -10,6 +10,9 @@ override_dh_auto_configure:
 	    --with-gnome-distributor=$(shell dpkg-vendor --query vendor) \
 	    --with-pnp-ids-path=/usr/share/hwdata/pnp.ids
 
+override_dh_strip:
+	dh_strip --dbg-package=libcinnamon-desktop-dbg
+
 override_dh_auto_install:
 	dh_auto_install -- typelibdir="/usr/lib/girepository-1.0"
 
