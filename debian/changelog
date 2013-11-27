@@ -2,5 +2,6 @@ cinnamon-desktop (2.0.4-1) UNRELEASED; urgency=low
 
   * Initial release.
   * New patch: po_gnome-desktop_to_cinnamon-desktop.diff
+  * New patch: add_schemas_to_POTFILES.in
 
  -- Maximiliano Curia <maxy@debian.org>  Wed, 27 Nov 2013 15:13:13 +0100
