@@ -1,15 +1,14 @@
 Source: cinnamon-desktop
 Section: x11
 Priority: optional
-Maintainer: Clement Lefebvre <root@linuxmint.com>
-Standards-Version: 3.9.3
-Build-Depends: debhelper (>= 8),
+Maintainer: Maximiliano Curia <maxy@debian.org>
+Standards-Version: 3.9.4
+Build-Depends: debhelper (>= 9),
                dpkg-dev (>= 1.15.1),
                dh-autoreconf,
                libglib2.0-dev (>= 2.32.3),
                intltool (>= 0.40.6),
                scrollkeeper,
-               cdbs (>= 0.4.41),
                gnome-pkg-tools (>= 0.10),
                gtk-doc-tools (>= 1.4),
                docbook-xml,
@@ -27,14 +26,12 @@ Build-Depends: debhelper (>= 8),
                gobject-introspection (>= 0.10.2-1~),
                libgirepository1.0-dev (>= 0.10.2-1~),
                libgl1-mesa-dev,
-               yelp-tools,
+               yelp-tools
 
 Package: cinnamon-desktop-data
 Architecture: all
 Multi-Arch: foreign
 Depends: ${misc:Depends}
-Breaks: gnome-desktop-data (<< 1:2.32.1-2)
-Replaces: gnome-desktop-data (<< 1:2.32.1-2)
 Description: Common files for Cinnamon desktop apps
  This package includes some files that are shared between several Cinnamon
  apps (internationalization files).
@@ -42,6 +39,8 @@ Description: Common files for Cinnamon desktop apps
 Package: libcinnamon-desktop0
 Section: libs
 Architecture: any
+Multi-Arch: same
+Pre-Depends: ${misc:Pre-Depends}
 Depends: ${misc:Depends},
          ${shlibs:Depends},
          cinnamon-desktop-data (>= ${source:Version})
