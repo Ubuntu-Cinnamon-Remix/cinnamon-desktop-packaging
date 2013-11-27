@@ -1,2 +1,2 @@
-usr/lib/lib*.so.*
-usr/lib/libcinnamon-desktop0
+usr/lib/*/libcinnamon-desktop.so.0
+usr/lib/*/libcinnamon-desktop.so.0.*
