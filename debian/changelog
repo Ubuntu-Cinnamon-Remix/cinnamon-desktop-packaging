@@ -1,4 +1,4 @@
-cinnamon-desktop (2.0.4-1~1) UNRELEASED; urgency=low
+cinnamon-desktop (2.0.4-1~2) UNRELEASED; urgency=low
 
   * Initial release.
   * New patch: po_gnome-desktop_to_cinnamon-desktop.diff
@@ -6,4 +6,4 @@ cinnamon-desktop (2.0.4-1~1) UNRELEASED; urgency=low
   * Bump Standards-Version to 3.9.5.
   * Add abi-compliance-checker info.
 
- -- Maximiliano Curia <maxy@debian.org>  Wed, 27 Nov 2013 15:13:13 +0100
+ -- Maximiliano Curia <maxy@debian.org>  Thu, 20 Feb 2014 00:14:57 +0100
