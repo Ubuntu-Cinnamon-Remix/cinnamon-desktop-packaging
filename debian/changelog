@@ -4,5 +4,6 @@ cinnamon-desktop (2.0.4-1~1) UNRELEASED; urgency=low
   * New patch: po_gnome-desktop_to_cinnamon-desktop.diff
   * New patch: add_schemas_to_POTFILES.in
   * Bump Standards-Version to 3.9.5.
+  * Add abi-compliance-checker info.
 
  -- Maximiliano Curia <maxy@debian.org>  Wed, 27 Nov 2013 15:13:13 +0100

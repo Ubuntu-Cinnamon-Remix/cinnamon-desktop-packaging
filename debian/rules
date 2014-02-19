@@ -1,6 +1,7 @@
 #!/usr/bin/make -f
 
 export DEB_LDFLAGS_MAINT_APPEND = -Wl,--as-needed
+DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
 
 %:
 	dh $@ --parallel --with=autoreconf,gir,gnome
@@ -19,3 +20,13 @@ override_dh_auto_install:
 
 override_dh_install:
 	dh_install --list-missing
+
+run_dh_acc:
+	# The package needs to be installed (@ in autopkgtest)
+	for in_file in debian/*.acc.in; do \
+	    out_file=$${in_file%.in}; \
+	    sed 's/\$${DEB_HOST_MULTIARCH}/'"$(DEB_HOST_MULTIARCH)"'/' \
+		"$${in_file}" > "$${out_file}"; \
+	done
+
+	dh_acc
