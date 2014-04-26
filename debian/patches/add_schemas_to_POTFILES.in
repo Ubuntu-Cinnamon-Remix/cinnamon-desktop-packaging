@@ -1,8 +1,8 @@
 Index: cinnamon-desktop/po/POTFILES.in
 ===================================================================
---- cinnamon-desktop.orig/po/POTFILES.in	2013-11-27 17:38:54.305645979 +0100
-+++ cinnamon-desktop/po/POTFILES.in	2013-11-27 17:40:58.700564599 +0100
-@@ -8,3 +8,20 @@
+--- cinnamon-desktop.orig/po/POTFILES.in	2014-04-26 15:32:10.975026838 +0200
++++ cinnamon-desktop/po/POTFILES.in	2014-04-26 15:33:13.824487423 +0200
+@@ -8,3 +8,19 @@
  libcinnamon-desktop/gnome-rr-config.c
  libcinnamon-desktop/gnome-rr-labeler.c
  libcinnamon-desktop/gnome-wall-clock.c
@@ -22,4 +22,3 @@ Index: cinnamon-desktop/po/POTFILES.in
 +schemas/org.cinnamon.desktop.thumbnail-cache.gschema.xml.in.in
 +schemas/org.cinnamon.desktop.thumbnailers.gschema.xml.in.in
 +schemas/org.cinnamon.desktop.wm.preferences.gschema.xml.in.in
-+schemas/org.cinnamon.system.locale.gschema.xml.in.in
