@@ -1,7 +1,7 @@
 cinnamon-desktop (2.2.0-1) UNRELEASED; urgency=low
 
   [ Maximiliano Curia ]
-  * Initial release.
+  * Initial release. (Closes: #745912)
   * New patch: po_gnome-desktop_to_cinnamon-desktop.diff
   * New patch: add_schemas_to_POTFILES.in
   * Bump Standards-Version to 3.9.5.
