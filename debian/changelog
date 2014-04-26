@@ -1,4 +1,4 @@
-cinnamon-desktop (2.2.0-1) UNRELEASED; urgency=low
+cinnamon-desktop (2.2.0-1~) UNRELEASED; urgency=low
 
   [ Maximiliano Curia ]
   * Initial release. (Closes: #745912)
