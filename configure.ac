@@ -1,5 +1,5 @@
 
-AC_INIT(cinnamon-desktop, 2.0.4)
+AC_INIT(cinnamon-desktop, 2.2.0)
 AC_CONFIG_SRCDIR(libcinnamon-desktop)
 
 AM_INIT_AUTOMAKE([1.11 foreign no-dist-gzip dist-xz tar-ustar])
@@ -63,7 +63,7 @@ dnl it too, or it will never make it into the spec file!
 
 GDK_PIXBUF_REQUIRED=2.21.3
 GTK_REQUIRED=3.3.6
-GLIB_REQUIRED=2.32.3
+GLIB_REQUIRED=2.32
 XRANDR_REQUIRED=1.3
 XEXT_REQUIRED=1.1
 
