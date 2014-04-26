@@ -47,6 +47,8 @@ Author: Soren Sandmann <sandmann@redhat.com>
 #include "gnome-bg.h"
 #include "gnome-bg-crossfade.h"
 
+#include "pthread.h"
+
 #define BG_KEY_PRIMARY_COLOR      "primary-color"
 #define BG_KEY_SECONDARY_COLOR    "secondary-color"
 #define BG_KEY_COLOR_TYPE         "color-shading-type"
@@ -243,6 +245,7 @@ queue_changed (GnomeBG *bg)
 {
 	if (bg->changed_id > 0) {
 		g_source_remove (bg->changed_id);
+		bg->changed_id = 0;
 	}
 
 	/* We unset this here to allow apps to set it if they don't want
@@ -280,6 +283,7 @@ queue_transitioned (GnomeBG *bg)
 {
 	if (bg->transitioned_id > 0) {
 		g_source_remove (bg->transitioned_id);
+		bg->transitioned_id = 0;
 	}
 
 	bg->transitioned_id = g_timeout_add_full (G_PRIORITY_LOW,
@@ -320,6 +324,85 @@ bg_gsettings_mapping (GVariant *value,
 	}
 
 	return FALSE;
+}
+
+void
+gnome_bg_set_accountsservice_background (const gchar *background)
+{
+  GDBusProxy *proxy = NULL;
+  GDBusProxy *user = NULL;
+  GVariant *variant = NULL;
+  GError *error = NULL;
+  gchar *object_path = NULL;
+
+  proxy = g_dbus_proxy_new_for_bus_sync (G_BUS_TYPE_SYSTEM,
+                                         G_DBUS_PROXY_FLAGS_NONE,
+                                         NULL,
+                                         "org.freedesktop.Accounts",
+                                         "/org/freedesktop/Accounts",
+                                         "org.freedesktop.Accounts",
+                                         NULL,
+                                         &error);
+
+  if (proxy == NULL) {
+    g_warning ("Failed to contact accounts service: %s", error->message);
+    g_error_free (error);
+    return;
+  }
+
+  variant = g_dbus_proxy_call_sync (proxy,
+                                    "FindUserByName",
+                                    g_variant_new ("(s)", g_get_user_name ()),
+                                    G_DBUS_CALL_FLAGS_NONE,
+                                    -1,
+                                    NULL,
+                                    &error);
+
+  if (variant == NULL) {
+    g_warning ("Could not contact accounts service to look up '%s': %s",
+               g_get_user_name (), error->message);
+    g_error_free (error);
+    goto bail;
+  }
+
+  g_variant_get (variant, "(o)", &object_path);
+  user = g_dbus_proxy_new_for_bus_sync (G_BUS_TYPE_SYSTEM,
+                                        G_DBUS_PROXY_FLAGS_NONE,
+                                        NULL,
+                                        "org.freedesktop.Accounts",
+                                        object_path,
+                                        "org.freedesktop.Accounts.User",
+                                        NULL,
+                                        &error);
+  g_free (object_path);
+
+  if (user == NULL) {
+    g_warning ("Could not create proxy for user '%s': %s",
+               g_variant_get_string (variant, NULL), error->message);
+    g_error_free (error);
+    goto bail;
+  }
+  g_variant_unref (variant);
+
+  variant = g_dbus_proxy_call_sync (user,
+                                    "SetBackgroundFile",
+                                    g_variant_new ("(s)", background ? background : ""),
+                                    G_DBUS_CALL_FLAGS_NONE,
+                                    -1,
+                                    NULL,
+                                    &error);
+
+  if (variant == NULL) {
+    g_warning ("Failed to set the background '%s': %s", background, error->message);
+    g_error_free (error);
+    goto bail;
+  }
+
+bail:
+  if (proxy != NULL)
+    g_object_unref (proxy);
+  if (variant != NULL)
+    g_variant_unref (variant);
 }
 
 void
@@ -1605,6 +1688,65 @@ gnome_bg_set_surface_as_root_with_crossfade (GdkScreen       *screen,
 }
 
 /**
+ * Arguments to gnome_bg_create_and_set_surface_as_root_thread
+ **/ 
+struct gnome_bg_cassar_args{
+	GnomeBG *thread_bg;
+	GdkWindow *thread_root_window;
+	GdkScreen *thread_screen;
+};
+
+int copied = 0; //Condition variable
+pthread_mutex_t bgmutex; //Mutex for condition variable
+pthread_cond_t bgcv; //Condition ID
+
+/**
+ * gnome_bg_create_and_set_surface_as_root_thread:
+ * @args: A struct gnome_bg_cassar_args
+ * 
+ * Function to be spawned in a separate thread, 
+ * sets the background surface on the root window.
+ **/ 
+static void
+gnome_bg_create_and_set_surface_as_root_thread (void *args)
+{
+        struct gnome_bg_cassar_args *args_struct = (struct gnome_bg_cassar_args*) args;
+
+        GTypeQuery query;
+        g_type_query(GDK_TYPE_SCREEN,&query); //This allows malloc() to know how big a GdkScreen is
+
+        //Allocate memory for variables
+        GnomeBG *bg = (GnomeBG*)malloc(sizeof(*args_struct->thread_bg));
+        GdkWindow *root_window = (GdkWindow*)malloc(sizeof(struct _GdkWindowClass));
+        GdkScreen *screen = (GdkScreen*)malloc(query.class_size);
+
+        //Copy variables to alloca1ted memory
+        memcpy(bg,args_struct->thread_bg,sizeof(*args_struct->thread_bg));
+        memcpy(root_window,args_struct->thread_root_window,sizeof(struct _GdkWindowClass));
+        memcpy(screen,args_struct->thread_screen,query.class_size);
+
+        //The data will is now safe from the termination of the calling thread
+        //Set copied to 1 and signal the calling thread to check it
+        pthread_mutex_lock(&bgmutex);
+        copied = 1;
+        pthread_mutex_unlock(&bgmutex);
+        pthread_cond_broadcast(&bgcv);
+
+        int width, height;
+        cairo_surface_t *surface;
+
+        width = gdk_screen_get_width (screen);
+        height = gdk_screen_get_height (screen);
+        surface = gnome_bg_create_surface (bg, root_window, width, height, TRUE);
+        gnome_bg_set_surface_as_root (screen, surface);
+        cairo_surface_destroy (surface);
+
+        //Free the allocated memory
+        free (root_window);
+        free (screen);
+}
+
+/**
  * gnome_bg_create_and_set_surface_as_root:
  * @root_window: the #GdkWindow
  * @screen: the #GdkScreen
@@ -1612,17 +1754,19 @@ gnome_bg_set_surface_as_root_with_crossfade (GdkScreen       *screen,
 void
 gnome_bg_create_and_set_surface_as_root (GnomeBG *bg, GdkWindow *root_window, GdkScreen *screen)
 {
-    int width, height;
-    cairo_surface_t *surface;
+        copied = 0;
+        struct gnome_bg_cassar_args thread_args;
 
-    width = gdk_screen_get_width (screen);
-    height = gdk_screen_get_height (screen);
+        thread_args.thread_bg = bg;
+        thread_args.thread_root_window = root_window;
+        thread_args.thread_screen = screen;
 
-    surface = gnome_bg_create_surface (bg, root_window, width, height, TRUE);
-
-    gnome_bg_set_surface_as_root (screen, surface);
-
-    cairo_surface_destroy (surface);
+        pthread_t thread;
+        pthread_create(&thread, NULL, gnome_bg_create_and_set_surface_as_root_thread, &thread_args);
+        pthread_mutex_lock(&bgmutex);
+        while(copied == 0)
+                pthread_cond_wait(&bgcv,&bgmutex);
+        pthread_mutex_unlock(&bgmutex);
 }
 
 /* Implementation of the pixbuf cache */
@@ -1632,8 +1776,8 @@ struct _SlideShow
 	double start_time;
 	double total_duration;
 
-	GQueue *slides;
-	
+        GQueue *slides;
+
 	gboolean has_multiple_sizes;
 
 	/* used during parsing */
@@ -2379,7 +2523,6 @@ clear_cache (GnomeBG *bg)
 
 	if (bg->timeout_id) {
 		g_source_remove (bg->timeout_id);
-
 		bg->timeout_id = 0;
 	}
 }
