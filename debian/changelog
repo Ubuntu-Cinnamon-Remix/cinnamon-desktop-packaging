@@ -8,6 +8,8 @@ cinnamon-desktop (2.2.0-1) UNRELEASED; urgency=low
   * Add abi-compliance-checker info.
 
   [ Margarita Manterola ]
-  * New upstream release.
+  * New upstream release 2.2.0.
+  * Updated patches.
+  * Updated symbol file.
 
  -- Margarita Manterola <marga@debian.org>  Sat, 26 Apr 2014 14:28:02 +0200
