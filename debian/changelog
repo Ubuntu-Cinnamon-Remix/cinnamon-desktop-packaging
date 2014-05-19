@@ -1,7 +1,7 @@
 cinnamon-desktop (2.2.2-1~) UNRELEASED; urgency=medium
 
-  * Update VCS fields.
   * New upstream release.
+  * Update VCS fields.
 
  -- Maximiliano Curia <maxy@debian.org>  Fri, 16 May 2014 20:17:37 +0200
 
