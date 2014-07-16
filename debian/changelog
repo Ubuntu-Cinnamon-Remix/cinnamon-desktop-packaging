@@ -1,3 +1,9 @@
+cinnamon-desktop (2.2.3-2) unstable; urgency=medium
+
+  * Release to unstable.
+
+ -- Maximiliano Curia <maxy@debian.org>  Wed, 16 Jul 2014 11:28:25 +0200
+
 cinnamon-desktop (2.2.3-1) experimental; urgency=medium
 
   [ Margarita Manterola ]
