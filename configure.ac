@@ -1,5 +1,5 @@
 
-AC_INIT(cinnamon-desktop, 2.2.3)
+AC_INIT(cinnamon-desktop, 2.4.2)
 AC_CONFIG_SRCDIR(libcinnamon-desktop)
 
 AM_INIT_AUTOMAKE([1.11 foreign no-dist-gzip dist-xz tar-ustar])
@@ -142,6 +142,7 @@ libcinnamon-desktop/cinnamon-desktop.pc
 libcinnamon-desktop/cinnamon-desktop-uninstalled.pc
 schemas/Makefile
 po/Makefile.in
+files/Makefile
 ])
 
 AC_OUTPUT
