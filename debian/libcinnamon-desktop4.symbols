@@ -30,6 +30,7 @@ libcinnamon-desktop.so.4 libcinnamon-desktop4 #MINVER#
  gnome_bg_set_surface_as_root@Base 2.0.4
  gnome_bg_set_surface_as_root_with_crossfade@Base 2.0.4
  gnome_desktop_prepend_terminal_to_vector@Base 2.0.4
+ gnome_desktop_get_media_key_string@Base 2.4.2
  gnome_desktop_thumbnail_factory_can_thumbnail@Base 2.0.4
  gnome_desktop_thumbnail_factory_create_failed_thumbnail@Base 2.0.4
  gnome_desktop_thumbnail_factory_generate_thumbnail@Base 2.0.4
