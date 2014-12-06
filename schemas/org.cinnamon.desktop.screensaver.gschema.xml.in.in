@@ -55,5 +55,61 @@
       <_summary>Allow the session status message to be displayed</_summary>
       <_description>Allow the session status message to be displayed when the screen is locked.</_description>
     </key>
+    <key name="default-message" type="s">
+      <default>""</default>
+      <summary>Default message for the screensaver</summary>
+      <description>
+        This is the message that appears on the lock screen by default.
+      </description>
+    </key>
+    <key name="ask-for-away-message" type="b">
+      <default>true</default>
+      <summary>Whether to ask for an away message when locking the screen</summary>
+      <description>
+        Whether to ask for an away message when locking the screen.
+      </description>
+    </key>
+    <key name="use-custom-format" type="b">
+      <default>false</default>
+      <summary>Whether to define a custom format for the date and time</summary>
+      <description>
+        Whether to use a custom date and time format for the lock screen.
+      </description>
+    </key>
+    <key name="time-format" type="s">
+      <default>"%H:%M"</default>
+      <summary>The custom time format</summary>
+      <description>
+        This is the time format that the lock screen will use if use-custom-format is enabled.
+      </description>
+    </key>
+    <key name="date-format" type="s">
+      <default>"%A %B %e"</default>
+      <summary>The custom date format</summary>
+      <description>
+        This is the date format that the lock screen will use if use-custom-format is enabled.
+      </description>
+    </key>
+    <key name="font-date" type="s">
+      <default>"Ubuntu 24"</default>
+      <summary>The date time font</summary>
+      <description>
+        This is the font that the date uses for the screen locker.
+      </description>
+    </key>
+    <key name="font-time" type="s">
+      <default>"Ubuntu 64"</default>
+      <summary>The time font</summary>
+      <description>
+        This is the font that the time uses for the screen locker.
+      </description>
+    </key>
+    <key name="font-message" type="s">
+      <default>"Ubuntu 14"</default>
+      <summary>The away message font</summary>
+      <description>
+        This is the font that the away message use for the screen locker.
+      </description>
+    </key>
   </schema>
 </schemalist>

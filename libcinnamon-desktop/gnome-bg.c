@@ -399,6 +399,8 @@ gnome_bg_set_accountsservice_background (const gchar *background)
 bail:
   if (proxy != NULL)
     g_object_unref (proxy);
+  if (user != NULL)
+    g_object_unref (user);
   if (variant != NULL)
     g_variant_unref (variant);
 }
@@ -2790,6 +2792,8 @@ stack_is (SlideShow *parser,
 		stack = g_list_prepend (stack, (gpointer)s);
 		s = va_arg (args, const char *);
 	}
+
+	va_end (args);
 	
 	l1 = stack;
 	l2 = parser->stack->head;
@@ -2823,7 +2827,12 @@ handle_text (GMarkupParseContext *context,
 	     GError             **err)
 {
 	SlideShow *parser = user_data;
-	Slide *slide = parser->slides->tail? parser->slides->tail->data : NULL;
+
+	g_return_if_fail (parser != NULL);
+	g_return_if_fail (parser->slides != NULL);
+	g_return_if_fail (parser->slides->tail != NULL);
+
+	Slide *slide = parser->slides->tail->data;
 	FileSize *fs;
 	gint i;
 
