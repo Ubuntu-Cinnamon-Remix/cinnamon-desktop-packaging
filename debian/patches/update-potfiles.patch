@@ -1,0 +1,17 @@
+Index: cinnamon-desktop/po/POTFILES.in
+===================================================================
+--- cinnamon-desktop.orig/po/POTFILES.in
++++ cinnamon-desktop/po/POTFILES.in
+@@ -16,8 +16,12 @@ schemas/org.cinnamon.desktop.background.
+ schemas/org.cinnamon.desktop.default-applications.gschema.xml.in.in
+ schemas/org.cinnamon.desktop.input-sources.gschema.xml.in.in
+ schemas/org.cinnamon.desktop.interface.gschema.xml.in.in
++schemas/org.cinnamon.desktop.keybindings.gschema.xml.in.in
++schemas/org.cinnamon.desktop.keybindings.media-keys.gschema.xml.in.in
+ schemas/org.cinnamon.desktop.lockdown.gschema.xml.in.in
+ schemas/org.cinnamon.desktop.media-handling.gschema.xml.in.in
++schemas/org.cinnamon.desktop.notifications.gschema.xml.in.in
++schemas/org.cinnamon.desktop.privacy.gschema.xml.in.in
+ schemas/org.cinnamon.desktop.screensaver.gschema.xml.in.in
+ schemas/org.cinnamon.desktop.session.gschema.xml.in.in
+ schemas/org.cinnamon.desktop.sound.gschema.xml.in.in
