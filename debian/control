@@ -35,7 +35,7 @@ Vcs-Git: git://anonscm.debian.org/pkg-cinnamon/cinnamon-desktop.git
 Package: cinnamon-desktop-data
 Architecture: all
 Multi-Arch: foreign
-Depends: ${misc:Depends}, ${python:Depends}
+Depends: ${misc:Depends}, ${python:Depends}, python, python-gi
 Description: Common files for Cinnamon desktop apps
  This package includes files that are shared between several Cinnamon
  apps (i18n files and configuration schemas).
