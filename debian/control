@@ -30,6 +30,7 @@ Build-Depends: debhelper (>= 9),
                xkb-data,
                yelp-tools
 Standards-Version: 3.9.6
+XS-Testsuite: autopkgtest
 Homepage: http://cinnamon.linuxmint.com/
 Vcs-Browser: http://anonscm.debian.org/cgit/pkg-cinnamon/cinnamon-desktop.git
 Vcs-Git: git://anonscm.debian.org/pkg-cinnamon/cinnamon-desktop.git
