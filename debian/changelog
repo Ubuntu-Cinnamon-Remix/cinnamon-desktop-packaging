@@ -1,7 +1,11 @@
 cinnamon-desktop (2.4.2-1~) UNRELEASED; urgency=medium
 
+  [ Fabio Fantoni ]
   * New upstream release.
   * debian/patches: removed 2 patches applied upstream.
+
+  [ Maximiliano Curia ]
+  * Bump Standards-Version to 3.9.6, no changes needed.
 
  -- Fabio Fantoni <fantonifabio@tiscali.it>  Sat, 06 Dec 2014 17:40:49 +0100
 
