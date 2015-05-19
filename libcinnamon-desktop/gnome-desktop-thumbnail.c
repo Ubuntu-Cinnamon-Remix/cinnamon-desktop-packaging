@@ -36,6 +36,7 @@
 #include <string.h>
 #include <glib.h>
 #include <stdio.h>
+#include <pwd.h>
 
 #define GDK_PIXBUF_ENABLE_BACKEND
 #include <gdk-pixbuf/gdk-pixbuf.h>
@@ -60,6 +61,10 @@ struct _GnomeDesktopThumbnailFactoryPrivate {
   gboolean loaded : 1;
   gboolean disabled : 1;
   gchar **disabled_types;
+
+  gboolean elevated;
+  uid_t real_uid;
+  gid_t real_gid;
 };
 
 static const char *appname = "gnome-thumbnail-factory";
@@ -784,6 +789,61 @@ external_thumbnailers_disabled_changed_cb (GSettings                    *setting
   g_mutex_unlock (&priv->lock);
 }
 
+/* There are various different behavior depending on whether the application
+   ran with sudo, pkexec, under the root user, and 'sudo su'...
+
+   - sudo (program) keeps the user's home folder (and their .cache folder)
+   - pkexec (program) uses root's .cache folder
+   - root terminal, running (program) uses root's .cache folder
+   - sudo su, then running (program), uses root's .cache folder
+
+   Using sudo, or sudo su, SUDO_UID and friends are set in the environment
+   Using pkexec, PKEXEC_UID is set
+
+   root terminal and pkexec cases don't need any extra work - they're thumbnailing
+   with the correct permissions (root-owned in root's .cache folder)
+
+   sudo and sudo su need help, and each in a different way:
+       - sudo su gives a false positive, since SUDO_UID is set, *but* the program
+         is using root's .cache folder, so we really don't want to fix these
+       - sudo (program) wants to use the user's cache folder, but will end up writing
+         them as root:root files, instead of user:user.  So, in this case, we make sure
+         to chmod those files to be owned by the original user, and not root.
+*/
+
+static void
+get_user_info (GnomeDesktopThumbnailFactory *factory)
+{
+
+    struct passwd *pwent;
+
+    pwent = getpwuid (0);
+
+    /* sudo su will use root's home dir (and cache) but still set
+       SUDO_UID to the user, so in this case we don't want to adjust
+       perms */
+    if (g_strcmp0 (pwent->pw_dir, g_get_home_dir ()) == 0) {
+        factory->priv->elevated = FALSE;
+        return;
+    }
+
+    if (getuid () != geteuid ()) {
+        factory->priv->real_uid = getuid ();
+        factory->priv->real_gid = getgid ();
+        factory->priv->elevated = TRUE;
+        return;
+    }
+
+    if (g_getenv ("SUDO_UID") != NULL) {
+        factory->priv->real_uid = (int) g_ascii_strtoll (g_getenv ("SUDO_UID"), NULL, 10);
+        factory->priv->real_gid = (int) g_ascii_strtoll (g_getenv ("SUDO_GID"), NULL, 10);
+        factory->priv->elevated = TRUE;
+        return;
+    }
+
+    factory->priv->elevated = FALSE;
+}
+
 static void
 gnome_desktop_thumbnail_factory_init (GnomeDesktopThumbnailFactory *factory)
 {
@@ -794,12 +854,15 @@ gnome_desktop_thumbnail_factory_init (GnomeDesktopThumbnailFactory *factory)
   priv = factory->priv;
 
   priv->size = GNOME_DESKTOP_THUMBNAIL_SIZE_NORMAL;
+  priv->elevated = FALSE;
   
   priv->mime_types_map = g_hash_table_new_full (g_str_hash,
                                                 g_str_equal,
                                                 (GDestroyNotify)g_free,
                                                 (GDestroyNotify)thumbnailer_unref);
-  
+
+  get_user_info (factory);
+
   g_mutex_init (&priv->lock);
 
   priv->settings = g_settings_new ("org.cinnamon.desktop.thumbnailers");
@@ -1286,6 +1349,18 @@ gnome_desktop_thumbnail_factory_generate_thumbnail (GnomeDesktopThumbnailFactory
   return pixbuf;
 }
 
+static void
+maybe_fix_ownership (GnomeDesktopThumbnailFactory *factory, const gchar *path)
+{
+    if (factory->priv->elevated) {
+        G_GNUC_UNUSED int res;
+
+        res = chown (path,
+                     factory->priv->real_uid,
+                     factory->priv->real_gid);
+    }
+}
+
 static gboolean
 make_thumbnail_dirs (GnomeDesktopThumbnailFactory *factory)
 {
@@ -1301,6 +1376,7 @@ make_thumbnail_dirs (GnomeDesktopThumbnailFactory *factory)
   if (!g_file_test (thumbnail_dir, G_FILE_TEST_IS_DIR))
     {
       g_mkdir (thumbnail_dir, 0700);
+      maybe_fix_ownership (factory, thumbnail_dir);
       res = TRUE;
     }
 
@@ -1310,6 +1386,7 @@ make_thumbnail_dirs (GnomeDesktopThumbnailFactory *factory)
   if (!g_file_test (image_dir, G_FILE_TEST_IS_DIR))
     {
       g_mkdir (image_dir, 0700);
+      maybe_fix_ownership (factory, image_dir);
       res = TRUE;
     }
 
@@ -1335,6 +1412,7 @@ make_thumbnail_fail_dirs (GnomeDesktopThumbnailFactory *factory)
   if (!g_file_test (thumbnail_dir, G_FILE_TEST_IS_DIR))
     {
       g_mkdir (thumbnail_dir, 0700);
+      maybe_fix_ownership (factory, thumbnail_dir);
       res = TRUE;
     }
 
@@ -1344,6 +1422,7 @@ make_thumbnail_fail_dirs (GnomeDesktopThumbnailFactory *factory)
   if (!g_file_test (fail_dir, G_FILE_TEST_IS_DIR))
     {
       g_mkdir (fail_dir, 0700);
+      maybe_fix_ownership (factory, fail_dir);
       res = TRUE;
     }
 
@@ -1353,6 +1432,7 @@ make_thumbnail_fail_dirs (GnomeDesktopThumbnailFactory *factory)
   if (!g_file_test (app_dir, G_FILE_TEST_IS_DIR))
     {
       g_mkdir (app_dir, 0700);
+      maybe_fix_ownership (factory, app_dir);
       res = TRUE;
     }
 
@@ -1463,6 +1543,7 @@ gnome_desktop_thumbnail_factory_save_thumbnail (GnomeDesktopThumbnailFactory *fa
     {
       g_chmod (tmp_path, 0600);
       g_rename (tmp_path, path);
+      maybe_fix_ownership (factory, path);
     }
   else
     {
@@ -1554,6 +1635,7 @@ gnome_desktop_thumbnail_factory_create_failed_thumbnail (GnomeDesktopThumbnailFa
     {
       g_chmod (tmp_path, 0600);
       g_rename(tmp_path, path);
+      maybe_fix_ownership (factory, path);
     }
 
   g_free (path);

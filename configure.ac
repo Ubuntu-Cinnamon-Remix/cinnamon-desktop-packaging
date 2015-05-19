@@ -1,8 +1,8 @@
 
-AC_INIT(cinnamon-desktop, 2.4.2)
+AC_INIT(cinnamon-desktop, 2.6.0)
 AC_CONFIG_SRCDIR(libcinnamon-desktop)
 
-AM_INIT_AUTOMAKE([1.11 foreign no-dist-gzip dist-xz tar-ustar])
+AM_INIT_AUTOMAKE([1.11 foreign no-dist-gzip dist-xz tar-ustar subdir-objects])
 m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES([yes])])
 
 AC_CONFIG_HEADERS([config.h])
@@ -61,9 +61,9 @@ fi
 dnl If you add a version number here, you *must* add an AC_SUBST line for
 dnl it too, or it will never make it into the spec file!
 
-GDK_PIXBUF_REQUIRED=2.21.3
-GTK_REQUIRED=3.3.6
-GLIB_REQUIRED=2.32
+GDK_PIXBUF_REQUIRED=2.22.0
+GTK_REQUIRED=3.3.16
+GLIB_REQUIRED=2.37.3
 XRANDR_REQUIRED=1.3
 XEXT_REQUIRED=1.1
 
