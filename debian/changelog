@@ -1,6 +1,7 @@
 cinnamon-desktop (2.6.0-1~) UNRELEASED; urgency=medium
 
   * New upstream release (2.6.0).
+  * Update build dependencies.
 
  -- Maximiliano Curia <maxy@debian.org>  Tue, 19 May 2015 17:14:44 +0200
 
