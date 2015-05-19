@@ -135,32 +135,8 @@
       <default>[]</default>
       <summary>Reverse switch system controls</summary>
     </key>
-    <key type="as" name="cycle-group">
-      <default><![CDATA[['<Alt>F6']]]></default>
-      <summary>Switch windows of an app directly</summary>
-    </key>
-    <key type="as" name="cycle-group-backward">
-      <default>[]</default>
-      <summary>Reverse switch windows of an app directly</summary>
-    </key>
-    <key type="as" name="cycle-windows">
-      <default><![CDATA[['<Alt>Escape']]]></default>
-      <summary>Switch windows directly</summary>
-    </key>
-    <key type="as" name="cycle-windows-backward">
-      <default>[]</default>
-      <summary>Reverse switch windows directly</summary>
-    </key>
-    <key type="as" name="cycle-panels">
-      <default><![CDATA[['<Control><Alt>Escape']]]></default>
-      <summary>Switch system controls directly</summary>
-    </key>
-    <key type="as" name="cycle-panels-backward">
-      <default>[]</default>
-      <summary>Reverse switch system controls directly</summary>
-    </key>
     <key type="as" name="show-desktop">
-      <default><![CDATA[['<Super>D']]]></default>
+      <default><![CDATA[['<Super>d']]]></default>
       <summary>Hide all normal windows</summary>
     </key>
     <key type="as" name="panel-run-dialog">
@@ -286,6 +262,22 @@
     <key type="as" name="move-to-workspace-new">
       <default>[]</default>
       <summary>Move window to a new workspace</summary>
+    </key>
+    <key type="as" name="move-to-monitor-left">
+      <default><![CDATA[['<Super><Shift>Left']]]></default>
+      <summary>Move window one monitor to the left</summary>
+    </key>
+    <key type="as" name="move-to-monitor-right">
+      <default><![CDATA[['<Super><Shift>Right']]]></default>
+      <summary>Move window one monitor to the right</summary>
+    </key>
+    <key type="as" name="move-to-monitor-up">
+      <default><![CDATA[['<Super><Shift>Up']]]></default>
+      <summary>Move window one monitor up</summary>
+    </key>
+    <key type="as" name="move-to-monitor-down">
+      <default><![CDATA[['<Super><Shift>Down']]]></default>
+      <summary>Move window one monitor down</summary>
     </key>
     <key type="as" name="raise-or-lower">
       <default>[]</default>
