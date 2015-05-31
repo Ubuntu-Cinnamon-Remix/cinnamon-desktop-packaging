@@ -1,0 +1,13 @@
+#!/bin/sh
+
+set -e
+
+ifeq ($(DEB_HOST_ARCH_OS),linux)
+    gsettings set org.cinnamon.desktop.session screensaver-uses-logind true
+    gsettings set org.cinnamon.desktop.session session-manager-uses-logind true
+    gsettings set org.cinnamon.desktop.session settings-daemon-uses-logind true
+endif
+
+#DEBHELPER#
+
+exit 0
