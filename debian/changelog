@@ -3,6 +3,7 @@ cinnamon-desktop (2.6.4-1~) UNRELEASED; urgency=medium
   [ Maximiliano Curia ]
   * New upstream release
   * Update build dependencies.
+  * Add linux gsettings override, to use systemd by default in Linux.
 
   [ Fabio Fantoni ]
   * Removed a patch applied upstream.
