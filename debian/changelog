@@ -1,3 +1,10 @@
+cinnamon-desktop (2.6.4-2) UNRELEASED; urgency=critical
+
+  * Add Breaks to prevent this package from getting installed with older
+    versions of cinnamon. (Closes: #788199)
+
+ -- Margarita Manterola <marga@debian.org>  Tue, 09 Jun 2015 19:57:18 +0200
+
 cinnamon-desktop (2.6.4-1) unstable; urgency=medium
 
   [ Maximiliano Curia ]
