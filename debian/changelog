@@ -1,3 +1,9 @@
+cinnamon-desktop (3.0.0-1~) UNRELEASED; urgency=medium
+
+  * New upstream release (3.0.0).
+
+ -- Maximiliano Curia <maxy@debian.org>  Thu, 05 May 2016 08:04:45 +0200
+
 cinnamon-desktop (2.8.1-1) unstable; urgency=medium
 
   [ Fabio Fantoni ]
