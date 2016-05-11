@@ -71,14 +71,3 @@ Architecture: any
 Depends: ${gir:Depends}, ${misc:Depends}, ${shlibs:Depends}
 Description: Introspection data for CinnamonDesktop
  This package contains the introspection data for CinnamonDesktop.
-
-Package: libcinnamon-desktop-dbg
-Section: debug
-Priority: extra
-Architecture: any
-Multi-Arch: same
-Pre-Depends: ${misc:Pre-Depends}
-Depends: libcinnamon-desktop4 (= ${binary:Version}), ${misc:Depends}
-Description: Cinnamon library for loading .desktop files - debug symbols
- This package contains the symbols files needed to debug the Cinnamon desktop
- library.
