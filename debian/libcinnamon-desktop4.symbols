@@ -47,6 +47,8 @@ libcinnamon-desktop.so.4 libcinnamon-desktop4 #MINVER#
  gnome_desktop_thumbnail_md5@Base 2.0.4
  gnome_desktop_thumbnail_path_for_uri@Base 2.0.4
  gnome_desktop_thumbnail_scale_down_pixbuf@Base 2.0.4
+ gnome_installer_check_for_packages@Base 3.0.1
+ gnome_installer_install_packages@Base 3.0.1
  gnome_pnp_ids_get_pnp_id@Base 2.0.4
  gnome_pnp_ids_get_type@Base 2.0.4
  gnome_pnp_ids_new@Base 2.0.4
