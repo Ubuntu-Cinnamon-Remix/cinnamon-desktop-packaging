@@ -1,9 +1,20 @@
-cinnamon-desktop (3.0.1-1~1) UNRELEASED; urgency=medium
+cinnamon-desktop (3.0.1-1~1) unstable; urgency=medium
 
   * New upstream release (3.0.0).
   * New upstream release (3.0.1).
+  * debian/control: Update Vcs-Browser and Vcs-Git fields
+  * Add a .gitattributes file to use dpkg-mergechangelogs
+  * Bump Standards-Version to 3.9.8
+  * Migrate dbg package to automatic dbgsym
+  * Add missing build dependency
+  * Drop obsolete XS-Testsuite field
+  * Add the new libcvc and it's components
+  * Update the not-installed file
+  * Update symbols file
+  * Add missing dependency in the -dev package
+  * Add a symbols file for libcvc, and inject the gir dependency in it
 
- -- Maximiliano Curia <maxy@debian.org>  Thu, 12 May 2016 20:56:51 +0200
+ -- Maximiliano Curia <maxy@debian.org>  Fri, 13 May 2016 12:48:27 +0200
 
 cinnamon-desktop (2.8.1-1) unstable; urgency=medium
 
