@@ -1,3 +1,11 @@
+cinnamon-desktop (3.0.1-2) unstable; urgency=medium
+
+  * Apply commit 9076d6217ae8a7a5b427c29f95c183b48ee0d751 from upstream, adding
+    the possibility of disabling overlay scrollbars. (Closes: #824700)
+    Thanks to Christoph Anton Mitterer for reporting.
+
+ -- Margarita Manterola <marga@debian.org>  Wed, 18 May 2016 22:07:07 +0200
+
 cinnamon-desktop (3.0.1-1) unstable; urgency=medium
 
   * New upstream release (3.0.0).
