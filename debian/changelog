@@ -1,6 +1,7 @@
 cinnamon-desktop (3.0.2-1) UNRELEASED; urgency=medium
 
   * New upstream release.
+    Drop overlay scrollbars change, applied upstream.
 
  -- Margarita Manterola <marga@debian.org>  Sat, 28 May 2016 15:37:59 +0200
 
