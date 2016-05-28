@@ -1,3 +1,9 @@
+cinnamon-desktop (3.0.2-1) UNRELEASED; urgency=medium
+
+  * New upstream release.
+
+ -- Margarita Manterola <marga@debian.org>  Sat, 28 May 2016 15:37:59 +0200
+
 cinnamon-desktop (3.0.1-2) unstable; urgency=medium
 
   * Apply commit 9076d6217ae8a7a5b427c29f95c183b48ee0d751 from upstream, adding
