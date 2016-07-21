@@ -87,7 +87,7 @@
  libgsystem_libs = $(CINNAMON_DESKTOP_LIBS)
  include libgsystem/Makefile-libgsystem.am
  
-@@ -94,18 +95,18 @@
+@@ -93,18 +94,18 @@
  if HAVE_INTROSPECTION
  
  
