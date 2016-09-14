@@ -1,0 +1,20 @@
+From: leigh123linux <leigh123linux@fedoraproject.org>
+Date: Tue, 13 Sep 2016 13:45:38 +0100
+Subject: There is no need for this as there are no docs
+
+---
+ autogen.sh | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/autogen.sh b/autogen.sh
+index 51988b5..1e636b4 100755
+--- a/autogen.sh
++++ b/autogen.sh
+@@ -24,7 +24,6 @@ fi
+ 
+ aclocal --install || exit 1
+ glib-gettextize --force --copy || exit 1
+-gtkdocize --copy || exit 1
+ intltoolize --force --copy --automake || exit 1
+ autoreconf --verbose --force --install || exit 1
+ 

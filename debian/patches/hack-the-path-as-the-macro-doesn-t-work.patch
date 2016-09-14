@@ -1,0 +1,29 @@
+From: leigh123linux <leigh123linux@googlemail.com>
+Date: Tue, 13 Sep 2016 14:00:30 +0100
+Subject: hack the path as the macro doesn't work
+
+---
+ libcinnamon-desktop/libgsystem/Makefile-libgsystem.am | 10 +++++-----
+ 1 file changed, 5 insertions(+), 5 deletions(-)
+
+diff --git a/libcinnamon-desktop/libgsystem/Makefile-libgsystem.am b/libcinnamon-desktop/libgsystem/Makefile-libgsystem.am
+index ea3d6c5..a836193 100644
+--- a/libcinnamon-desktop/libgsystem/Makefile-libgsystem.am
++++ b/libcinnamon-desktop/libgsystem/Makefile-libgsystem.am
+@@ -18,11 +18,11 @@
+ noinst_LTLIBRARIES += libgsystem.la
+ 
+ libgsystem_la_SOURCES = \
+-	$(libgsystem_srcpath)/gsystem-local-alloc.h \
+-	$(libgsystem_srcpath)/gsystem-local-alloc.c \
+-	$(libgsystem_srcpath)/gsystem-file-utils.h \
+-	$(libgsystem_srcpath)/gsystem-file-utils.c \
+-	$(libgsystem_srcpath)/libgsystem.h \
++	libgsystem/gsystem-local-alloc.h \
++	libgsystem/gsystem-local-alloc.c \
++	libgsystem/gsystem-file-utils.h \
++	libgsystem/gsystem-file-utils.c \
++	libgsystem/libgsystem.h \
+ 	$(NULL)
+ 
+ libgsystem_la_CFLAGS = $(AM_CFLAGS) $(libgsystem_cflags)
