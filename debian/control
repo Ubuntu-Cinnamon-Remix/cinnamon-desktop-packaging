@@ -89,4 +89,5 @@ Section: introspection
 Architecture: any
 Depends: ${gir:Depends}, ${misc:Depends}, ${shlibs:Depends}
 Description: Introspection data for Cinnamon pulseaudio abstraction
- This package contains the introspection data for Cinnamon pulseaudio abstraction.
+ This package contains the introspection data for Cinnamon pulseaudio
+ abstraction.
