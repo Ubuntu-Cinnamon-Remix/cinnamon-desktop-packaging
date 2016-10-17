@@ -16,8 +16,7 @@ cinnamon-desktop (3.0.2-2) unstable; urgency=medium
   * Fix dbgsym-migration rules
 
   [ Maximiliano Curia ]
-  * Add new patch: migrate_deprecated_gnome-common.patch (Closes:
-    829886)
+  * Add new patch: migrate_deprecated_gnome-common.patch (Closes: #829910)
 
  -- Maximiliano Curia <maxy@debian.org>  Thu, 21 Jul 2016 14:23:41 +0200
 
