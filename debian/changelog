@@ -5,6 +5,8 @@ cinnamon-desktop (3.0.2-3~1.gbpebf164) UNRELEASED; urgency=medium
   * Call autogen.sh with dh_autoreconf
   * Add upstream patches remove-gtkdocize.patch and fix-libgsystem-path.patch
   * Add new patch: Make-AX_-macros-optional.patch
+  * Add autoconf-archive as a build dependency. Thanks to Michael Biebl for
+    the report (Closes: #837857)
 
  -- Maximiliano Curia <maxy@gnuservers.com.ar>  Wed, 14 Sep 2016 20:52:32 +0200
 
