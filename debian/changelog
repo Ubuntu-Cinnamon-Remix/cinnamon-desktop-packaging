@@ -1,3 +1,10 @@
+cinnamon-desktop (3.0.2-3~) UNRELEASED; urgency=medium
+
+  * Add a preliminar x-cinnamon-mimeapps.list file (Closes: 842602)
+    Thanks to David Rabel for the report
+
+ -- Maximiliano Curia <maxy@debian.org>  Tue, 01 Nov 2016 12:03:40 +0100
+
 cinnamon-desktop (3.0.2-3) unstable; urgency=medium
 
   [ Maximiliano Curia ]
