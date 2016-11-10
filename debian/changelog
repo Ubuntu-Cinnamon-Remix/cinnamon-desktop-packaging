@@ -1,4 +1,4 @@
-cinnamon-desktop (3.0.2-3) unstable; urgency=medium
+cinnamon-desktop (3.0.2-4) unstable; urgency=medium
 
   * Add a basic x-cinnamon-mimeapps.list file (Closes: 842602)
     Thanks to David Rabel for the report
