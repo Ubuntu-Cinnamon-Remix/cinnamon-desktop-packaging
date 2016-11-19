@@ -1,13 +1,17 @@
 
-AC_INIT(cinnamon-desktop, 3.0.2)
+AC_INIT(cinnamon-desktop, 3.2.0)
+
+m4_ifdef([AX_IS_RELEASE], [AX_IS_RELEASE([always])])
+
 AC_CONFIG_SRCDIR(libcinnamon-desktop)
 
-AM_INIT_AUTOMAKE([1.11 foreign no-dist-gzip dist-xz tar-ustar])
+AM_INIT_AUTOMAKE([1.11 foreign no-dist-gzip dist-xz tar-ustar subdir-objects])
 m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES([yes])])
 
 AC_CONFIG_HEADERS([config.h])
 
 AC_CONFIG_MACRO_DIR([m4])
+AC_SUBST([ACLOCAL_AMFLAGS], ["-I $ac_macro_dir \${ACLOCAL_FLAGS}"])
 
 # Before making a release, the LT_VERSION string should be modified.
 # The string is of the form C:R:A.
@@ -28,8 +32,8 @@ IT_PROG_INTLTOOL([0.40.6])
 AC_PROG_CC
 PKG_PROG_PKG_CONFIG
 
-GNOME_COMPILE_WARNINGS([maximum])
-GNOME_MAINTAINER_MODE_DEFINES
+m4_ifdef([AX_COMPILER_FLAGS],
+         [AX_COMPILER_FLAGS([WARN_CFLAGS],[WARN_LDFLAGS])])
 
 AC_ARG_ENABLE(deprecation_flags,
               [AC_HELP_STRING([--enable-deprecation-flags],
@@ -84,6 +88,7 @@ PKG_CHECK_MODULES(XLIB, x11,
      AC_PATH_XTRA
      if test "x$no_x" = xyes; then
        AC_MSG_ERROR("no (requires X development libraries)")
+dnl "
      else
        XLIB_LIBS="$X_PRE_LIBS $X_LIBS -lX11 $X_EXTRA_LIBS"
        XLIB_CFLAGS=$X_CFLAGS
@@ -124,6 +129,19 @@ if test x"$gnome_cv_timerfd" = x"yes"; then
   AC_DEFINE(HAVE_TIMERFD, 1, [we have the timerfd_create(2) system call])
 fi
 
+PAM_PREFIX='${sysconfdir}'
+AC_SUBST(PAM_PREFIX)
+
+have_pam=no
+AC_CHECK_LIB(pam, pam_start, have_pam=yes)
+
+if test "x$have_pam" = "xyes"; then
+        AUTH_LIBS="${AUTH_LIBS} -lpam"
+        AC_SUBST(AUTH_LIBS)
+else
+        AC_MSG_ERROR("PAM libraries not found")
+fi
+
 dnl Language Support
 
 GETTEXT_PACKAGE=cinnamon-desktop
@@ -148,6 +166,7 @@ libcvc/cvc-uninstalled.pc
 schemas/Makefile
 po/Makefile.in
 files/Makefile
+data/Makefile
 ])
 
 AC_OUTPUT
