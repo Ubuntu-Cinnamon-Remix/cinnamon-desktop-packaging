@@ -1,3 +1,9 @@
+cinnamon-desktop (3.2.0-1) UNRELEASED; urgency=medium
+
+  * New upstream release.
+
+ -- Margarita Manterola <marga@debian.org>  Sat, 19 Nov 2016 12:26:27 +0100
+
 cinnamon-desktop (3.0.2-4) unstable; urgency=medium
 
   * Add a basic x-cinnamon-mimeapps.list file (Closes: 842602)
