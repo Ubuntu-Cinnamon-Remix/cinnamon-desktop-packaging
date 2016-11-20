@@ -24,3 +24,6 @@ override_dh_auto_install:
 
 override_dh_install:
 	dh_install --list-missing
+
+override_dh_installpam:
+	dh_installpam --name="cinnamon-desktop"
