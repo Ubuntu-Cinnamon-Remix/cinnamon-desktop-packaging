@@ -1,4 +1,4 @@
-cinnamon-desktop (3.2.1-1~) UNRELEASED; urgency=medium
+cinnamon-desktop (3.2.1-1) experimental; urgency=medium
 
   [ Margarita Manterola ]
   * New upstream release.
@@ -7,7 +7,7 @@ cinnamon-desktop (3.2.1-1~) UNRELEASED; urgency=medium
   [ Maximiliano Curia ]
   * Update symbols files.
 
- -- Margarita Manterola <marga@debian.org>  Thu, 08 Dec 2016 13:49:59 -0300
+ -- Maximiliano Curia <maxy@debian.org>  Fri, 09 Dec 2016 00:00:47 +0100
 
 cinnamon-desktop (3.0.2-4) unstable; urgency=medium
 
