@@ -1,8 +1,7 @@
-cinnamon-desktop (3.2.1-1) UNRELEASED; urgency=medium
+cinnamon-desktop (3.2.1-1~) UNRELEASED; urgency=medium
 
   * New upstream release.
   * Remove obsolete patches, they were applied upstream.
-  * New upstream release.
 
  -- Margarita Manterola <marga@debian.org>  Thu, 08 Dec 2016 13:49:59 -0300
 
