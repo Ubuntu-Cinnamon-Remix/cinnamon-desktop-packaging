@@ -1,3 +1,9 @@
+cinnamon-desktop (3.2.4-1~) UNRELEASED; urgency=medium
+
+  * New upstream release (3.2.4).
+
+ -- Maximiliano Curia <maxy@debian.org>  Fri, 16 Dec 2016 23:55:53 +0100
+
 cinnamon-desktop (3.2.1-1) experimental; urgency=medium
 
   [ Margarita Manterola ]
