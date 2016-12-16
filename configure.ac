@@ -1,5 +1,5 @@
 
-AC_INIT(cinnamon-desktop, 3.2.1)
+AC_INIT(cinnamon-desktop, 3.2.4)
 
 m4_ifdef([AX_IS_RELEASE], [AX_IS_RELEASE([always])])
 
@@ -129,19 +129,6 @@ if test x"$gnome_cv_timerfd" = x"yes"; then
   AC_DEFINE(HAVE_TIMERFD, 1, [we have the timerfd_create(2) system call])
 fi
 
-PAM_PREFIX='${sysconfdir}'
-AC_SUBST(PAM_PREFIX)
-
-have_pam=no
-AC_CHECK_LIB(pam, pam_start, have_pam=yes)
-
-if test "x$have_pam" = "xyes"; then
-        AUTH_LIBS="${AUTH_LIBS} -lpam"
-        AC_SUBST(AUTH_LIBS)
-else
-        AC_MSG_ERROR("PAM libraries not found")
-fi
-
 dnl Language Support
 
 GETTEXT_PACKAGE=cinnamon-desktop
@@ -166,7 +153,6 @@ libcvc/cvc-uninstalled.pc
 schemas/Makefile
 po/Makefile.in
 files/Makefile
-data/Makefile
 ])
 
 AC_OUTPUT
