@@ -1,4 +1,4 @@
-# SymbolsHelper-Confirmed: 3.2.0 amd64
+# SymbolsHelper-Confirmed: 3.2.4 amd64
 libcinnamon-desktop.so.4 libcinnamon-desktop4 #MINVER#
  gnome_bg_changes_with_time@Base 2.0.4
  gnome_bg_create_and_set_gtk_image@Base 3.2.0
@@ -31,7 +31,6 @@ libcinnamon-desktop.so.4 libcinnamon-desktop4 #MINVER#
  gnome_bg_set_placement@Base 2.0.4
  gnome_bg_set_surface_as_root@Base 2.0.4
  gnome_bg_set_surface_as_root_with_crossfade@Base 2.0.4
- gnome_desktop_check_user_password@Base 3.2.0
  gnome_desktop_get_media_key_string@Base 2.4.2
  gnome_desktop_get_session_user_pwent@Base 2.6.4
  gnome_desktop_prepend_terminal_to_vector@Base 2.0.4
