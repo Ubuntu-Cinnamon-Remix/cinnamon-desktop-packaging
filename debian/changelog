@@ -1,3 +1,10 @@
+cinnamon-desktop (3.2.4-4) UNRELEASED; urgency=medium
+
+  * Change the default window manager theme to 'Default' as 'Adwaita' doesn't
+    exist as a theme anymore. (Closes: #852974)
+
+ -- Margarita Manterola <marga@debian.org>  Sun, 29 Jan 2017 16:01:03 +0100
+
 cinnamon-desktop (3.2.4-3) unstable; urgency=medium
 
   * Release to unstable
