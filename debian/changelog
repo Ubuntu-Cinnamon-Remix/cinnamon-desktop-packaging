@@ -1,3 +1,9 @@
+cinnamon-desktop (3.4.2-1~) UNRELEASED; urgency=medium
+
+  * New upstream release (3.4.2).
+
+ -- Maximiliano Curia <maxy@debian.org>  Fri, 04 Aug 2017 21:47:37 +0200
+
 cinnamon-desktop (3.2.4-4) unstable; urgency=medium
 
   * Change the default window manager theme to 'Default' as 'Adwaita' doesn't
