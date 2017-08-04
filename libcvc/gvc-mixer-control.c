@@ -1955,7 +1955,7 @@ create_ui_device_from_port (GvcMixerControl* control,
 
         g_hash_table_insert (is_card_port_an_output (port) ? control->priv->ui_outputs : control->priv->ui_inputs,
                              GUINT_TO_POINTER (gvc_mixer_ui_device_get_id (uidevice)),
-                             g_object_ref (uidevice));
+                             uidevice);
 
 
         if (available) {
@@ -2099,7 +2099,7 @@ sink_info_cb (pa_context         *c,
         int j;
         const char *s;
 
-        if (eol) {
+        if (eol != 0) {
                 port_status_data_free (data);
                 return;
         }
@@ -2122,7 +2122,6 @@ sink_info_cb (pa_context         *c,
 
         o = pa_context_set_sink_port_by_index (c, i->index, s, NULL, NULL);
         g_clear_pointer (&o, pa_operation_unref);
-        port_status_data_free (data);
 }
 
 static void
@@ -2136,7 +2135,7 @@ source_info_cb (pa_context           *c,
         int j;
         const char *s;
 
-        if (eol) {
+        if (eol != 0) {
                 port_status_data_free (data);
                 return;
         }
@@ -2158,7 +2157,6 @@ source_info_cb (pa_context           *c,
 
         o = pa_context_set_source_port_by_index(c, i->index, s, NULL, NULL);
         g_clear_pointer (&o, pa_operation_unref);
-        port_status_data_free (data);
 }
 
 static void
@@ -2480,7 +2478,7 @@ update_card (GvcMixerControl      *control,
         if (is_new) {
                 g_hash_table_insert (control->priv->cards,
                                      GUINT_TO_POINTER (info->index),
-                                     g_object_ref (card));
+                                     card);
         }
 
         card_ports = gvc_mixer_card_get_ports (card);
