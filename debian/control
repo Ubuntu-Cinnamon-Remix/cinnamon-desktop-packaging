@@ -57,6 +57,7 @@ Depends:
  ${misc:Depends},
  ${shlibs:Depends},
 Recommends: hwdata (>= 0.227-1)
+Breaks: cinnamon-settings-daemon (<< 3.4~)
 Description: Cinnamon library for loading .desktop files
  This library is used by Cinnamon to load the .desktop files.
 
