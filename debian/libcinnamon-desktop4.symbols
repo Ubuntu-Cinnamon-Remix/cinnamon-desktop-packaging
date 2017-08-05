@@ -1,4 +1,4 @@
-# SymbolsHelper-Confirmed: 3.2.4 amd64
+# SymbolsHelper-Confirmed: 3.4.2 amd64
 libcinnamon-desktop.so.4 libcinnamon-desktop4 #MINVER#
  gnome_bg_changes_with_time@Base 2.0.4
  gnome_bg_create_and_set_gtk_image@Base 3.2.0
@@ -25,7 +25,6 @@ libcinnamon-desktop.so.4 libcinnamon-desktop4 #MINVER#
  gnome_bg_load_from_preferences@Base 2.0.4
  gnome_bg_new@Base 2.0.4
  gnome_bg_save_to_preferences@Base 2.0.4
- gnome_bg_set_accountsservice_background@Base 2.2.0
  gnome_bg_set_color@Base 2.0.4
  gnome_bg_set_filename@Base 2.0.4
  gnome_bg_set_placement@Base 2.0.4
@@ -155,6 +154,7 @@ libcinnamon-desktop.so.4 libcinnamon-desktop4 #MINVER#
  gnome_wall_clock_get_clock@Base 2.0.4
  gnome_wall_clock_get_type@Base 2.0.4
  gnome_wall_clock_new@Base 3.2.0
+ gnome_wall_clock_set_update_interval@Base 3.4.2
  gnome_xkb_info_description_for_option@Base 2.0.4
  gnome_xkb_info_free_var_defs@Base 2.0.4
  gnome_xkb_info_get_all_layouts@Base 2.0.4
