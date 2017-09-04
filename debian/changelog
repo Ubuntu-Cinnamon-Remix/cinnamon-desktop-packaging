@@ -1,6 +1,6 @@
 cinnamon-desktop (3.4.2-3~) UNRELEASED; urgency=medium
 
-  * Add missed libcvc-dev package.
+  * Add missed gir1.2-cvc-1.0 to libcinnamon-desktop-dev deps.
 
  -- Fabio Fantoni <fantonifabio@tiscali.it>  Mon, 04 Sep 2017 10:54:30 +0200
 
