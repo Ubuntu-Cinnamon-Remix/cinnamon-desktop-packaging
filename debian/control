@@ -101,6 +101,8 @@ Pre-Depends: ${misc:Pre-Depends}
 Depends: gir1.2-cvc-1.0 (= ${binary:Version}),
          libcvc0 (= ${binary:Version}),
          ${misc:Depends}
+Replaces: libcinnamon-desktop-dev (<= 3.4.2-3~)
+Breaks: libcinnamon-desktop-dev (<= 3.4.2-3~)
 Description: Cinnamon pulseaudio abstraction library
  This library contains code to access PulseAudio using a GObject
  based library, shared between cinnamon-control-center, cinnamon-settings-daemon
