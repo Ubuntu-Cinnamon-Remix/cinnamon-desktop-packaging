@@ -152,9 +152,12 @@ libcinnamon-desktop.so.4 libcinnamon-desktop4 #MINVER#
  gnome_rr_screen_set_primary_output@Base 2.0.4
  gnome_rr_screen_set_size@Base 2.0.4
  gnome_wall_clock_get_clock@Base 2.0.4
+ gnome_wall_clock_get_clock_for_format@Base 3.6.0
+ gnome_wall_clock_get_default_date_format@Base 3.6.0
+ gnome_wall_clock_get_default_time_format@Base 3.6.0
  gnome_wall_clock_get_type@Base 2.0.4
  gnome_wall_clock_new@Base 3.2.0
- gnome_wall_clock_set_update_interval@Base 3.4.2
+ gnome_wall_clock_set_format_string@Base 3.6.0
  gnome_xkb_info_description_for_option@Base 2.0.4
  gnome_xkb_info_free_var_defs@Base 2.0.4
  gnome_xkb_info_get_all_layouts@Base 2.0.4
