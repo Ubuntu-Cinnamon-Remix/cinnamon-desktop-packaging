@@ -40,11 +40,11 @@ Vcs-Git: https://anonscm.debian.org/git/pkg-cinnamon/cinnamon-desktop.git
 Package: cinnamon-desktop-data
 Architecture: all
 Breaks:
- cinnamon (<< 3.4),
- cinnamon-control-center (<< 3.4),
- cinnamon-screensaver (<< 3.4),
- cinnamon-session (<< 3.4),
- cinnamon-settings-daemon (<< 3.4),
+ cinnamon (<< 3.6),
+ cinnamon-control-center (<< 3.6),
+ cinnamon-screensaver (<< 3.6),
+ cinnamon-session (<< 3.6),
+ cinnamon-settings-daemon (<< 3.6),
 Multi-Arch: foreign
 Depends: python, python-gi, ${misc:Depends}, ${python:Depends}
 Description: Common files for Cinnamon desktop apps
@@ -62,10 +62,10 @@ Depends:
  ${shlibs:Depends},
 Recommends: hwdata (>= 0.227-1)
 Breaks:
- cinnamon-control-center (<< 3.4),
- cinnamon-settings-daemon (<< 3.4),
- libcinnamon-control-center1 (<< 3.4),
- nemo (<< 3.4),
+ cinnamon-control-center (<< 3.6),
+ cinnamon-settings-daemon (<< 3.6),
+ libcinnamon-control-center1 (<< 3.6),
+ nemo (<< 3.6),
 Description: Cinnamon library for loading .desktop files
  This library is used by Cinnamon to load the .desktop files.
 
@@ -79,7 +79,7 @@ Description: Cinnamon pulseaudio abstraction library
  based library, shared between cinnamon-control-center, cinnamon-settings-daemon
  and cinnamon. It is not API stable, and it is meant to be used
  as a submodule.
-Breaks: cinnamon-settings-daemon (<< 3.4)
+Breaks: cinnamon-settings-daemon (<< 3.6)
 
 Package: libcinnamon-desktop-dev
 Section: libdevel
@@ -103,9 +103,9 @@ Depends: ${gir:Depends}, ${misc:Depends}, ${shlibs:Depends}
 Description: Introspection data for CinnamonDesktop
  This package contains the introspection data for CinnamonDesktop.
 Breaks:
- cinnamon-common (<< 3.4),
- cinnamon-screensaver (<< 3.4),
- gir1.2-meta-muffin-0.0 (<< 3.4),
+ cinnamon-common (<< 3.6),
+ cinnamon-screensaver (<< 3.6),
+ gir1.2-meta-muffin-0.0 (<< 3.6),
 
 Package: gir1.2-cvc-1.0
 Section: introspection
@@ -114,4 +114,4 @@ Depends: ${gir:Depends}, ${misc:Depends}, ${shlibs:Depends}
 Description: Introspection data for Cinnamon pulseaudio abstraction
  This package contains the introspection data for Cinnamon pulseaudio
  abstraction.
-Breaks: cinnamon (<< 3.4), cinnamon-settings-daemon (<< 3.4)
+Breaks: cinnamon (<< 3.6), cinnamon-settings-daemon (<< 3.6)
