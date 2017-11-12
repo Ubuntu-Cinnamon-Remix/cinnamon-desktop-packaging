@@ -1,7 +1,7 @@
-cinnamon-desktop (3.6.0-1~) UNRELEASED; urgency=medium
+cinnamon-desktop (3.6.2-1~) UNRELEASED; urgency=medium
 
   * Add missed gir1.2-cvc-1.0 to libcinnamon-desktop-dev deps.
-  * New upstream release (3.6.0).
+  * New upstream release (3.6.2).
   * Bump group breaks (3.6).
   * Update symbols.
 
