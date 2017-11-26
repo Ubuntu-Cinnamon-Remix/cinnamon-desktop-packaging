@@ -1,11 +1,16 @@
-cinnamon-desktop (3.6.2-1~) UNRELEASED; urgency=medium
+cinnamon-desktop (3.6.2-1~1) UNRELEASED; urgency=medium
 
+  [ Fabio Fantoni ]
   * Add missed gir1.2-cvc-1.0 to libcinnamon-desktop-dev deps.
   * New upstream release (3.6.2).
   * Bump group breaks (3.6).
   * Update symbols.
+  * remove gsettings override of a key removed upstream
 
- -- Fabio Fantoni <fantonifabio@tiscali.it>  Wed, 01 Nov 2017 12:40:00 +0100
+  [ Maximiliano Curia ]
+  * Disable acc test, dh-acc now gets confused by the libc's ldscripts
+
+ -- Maximiliano Curia <maxy@debian.org>  Sun, 26 Nov 2017 10:53:41 +0100
 
 cinnamon-desktop (3.4.2-2) unstable; urgency=medium
 
