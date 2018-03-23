@@ -80,6 +80,7 @@ Depends:
  libcinnamon-desktop4 (= ${binary:Version}),
  libcvc0 (= ${binary:Version}),
  libgtk-3-dev (>= 3.3.16),
+ libpulse-dev,
  libxkbfile-dev,
  ${misc:Depends},
 Description: Cinnamon library for loading .desktop files - development files
