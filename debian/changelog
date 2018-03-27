@@ -1,3 +1,13 @@
+cinnamon-desktop (3.6.2-2~) UNRELEASED; urgency=medium
+
+  * New revision
+  * Drop dh-autoreconf (no longer needed with dh >= 10)
+  * Drop dh's parallel arg (no longer needed with dh >= 10)
+  * Drop disabled debian/tests.
+    Thanks to Jeremy Bicha for the report (Closes: 894166)
+
+ -- Maximiliano Curia <maxy@debian.org>  Tue, 27 Mar 2018 08:50:00 +0200
+
 cinnamon-desktop (3.6.2-1) unstable; urgency=medium
 
   [ Fabio Fantoni ]
