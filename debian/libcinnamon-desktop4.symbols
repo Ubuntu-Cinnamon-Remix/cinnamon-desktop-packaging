@@ -1,5 +1,9 @@
 # SymbolsHelper-Confirmed: 3.4.2 amd64
 libcinnamon-desktop.so.4 libcinnamon-desktop4 #MINVER#
+ _gnome_datetime_source_new@Base 3.8.0
+ _gnome_desktop_init_i18n@Base 3.8.0
+ _gnome_rr_output_name_is_laptop@Base 3.8.0
+ decode_edid@Base 3.8.0
  gnome_bg_changes_with_time@Base 2.0.4
  gnome_bg_create_and_set_gtk_image@Base 3.2.0
  gnome_bg_create_and_set_surface_as_root@Base 2.0.4
@@ -25,6 +29,7 @@ libcinnamon-desktop.so.4 libcinnamon-desktop4 #MINVER#
  gnome_bg_load_from_preferences@Base 2.0.4
  gnome_bg_new@Base 2.0.4
  gnome_bg_save_to_preferences@Base 2.0.4
+ gnome_bg_set_accountsservice_background@Base 3.8.0
  gnome_bg_set_color@Base 2.0.4
  gnome_bg_set_filename@Base 2.0.4
  gnome_bg_set_placement@Base 2.0.4
@@ -168,3 +173,4 @@ libcinnamon-desktop.so.4 libcinnamon-desktop4 #MINVER#
  gnome_xkb_info_get_type@Base 2.0.4
  gnome_xkb_info_get_var_defs@Base 2.0.4
  gnome_xkb_info_new@Base 2.0.4
+ make_display_name@Base 3.8.0
