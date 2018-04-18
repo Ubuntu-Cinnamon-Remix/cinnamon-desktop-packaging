@@ -1,3 +1,11 @@
+cinnamon-desktop (3.8.0-1~) UNRELEASED; urgency=medium
+
+  * New upstream release (3.8.0).
+  * Bump group breaks (3.8).
+  * update debian/copyright
+
+ -- Fabio Fantoni <fantonifabio@tiscali.it>  Wed, 18 Apr 2018 21:31:57 +0200
+
 cinnamon-desktop (3.6.2-2) unstable; urgency=medium
 
   * New revision
