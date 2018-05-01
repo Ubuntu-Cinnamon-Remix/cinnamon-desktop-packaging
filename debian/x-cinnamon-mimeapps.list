@@ -23,10 +23,10 @@ image/x-pcx=eog.desktop;gimp.desktop;
 
 text/plain=org.gnome.gedit.desktop;
 
-message/rfc822=icedove.desktop;
-text/calendar=icedove.desktop;
-text/x-vcard=icedove.desktop;
-x-scheme-handler/mailto=icedove.desktop;
+message/rfc822=thunderbird.desktop;
+text/calendar=thunderbird.desktop;
+text/x-vcard=thunderbird.desktop;
+x-scheme-handler/mailto=thunderbird.desktop;
 
 text/html=firefox-esr.desktop;firefox.desktop;chromium.desktop;
 text/xml=firefox-esr.desktop;firefox.desktop;chromium.desktop;
