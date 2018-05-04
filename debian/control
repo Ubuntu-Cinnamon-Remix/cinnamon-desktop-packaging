@@ -83,6 +83,7 @@ Depends:
 Description: Cinnamon library for loading .desktop files - development files
  This package provides the include files and static library for the Cinnamon
  desktop library functions.
+Breaks: libmuffin-dev (<< 3.8)
 
 Package: libcinnamon-desktop4
 Section: libs
