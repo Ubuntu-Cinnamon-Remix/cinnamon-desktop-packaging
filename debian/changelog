@@ -1,11 +1,22 @@
-cinnamon-desktop (3.8.0-1~) UNRELEASED; urgency=medium
+cinnamon-desktop (3.8.0-1) experimental; urgency=medium
 
+  [ Fabio Fantoni ]
   * New upstream release (3.8.0).
   * Bump group breaks (3.8).
   * Update debian/copyright.
   * Update symbols.
+  * debian/rules: remove deprecated dh_install
+  * debian/rules: add dh_missing --list-missing until will be default
+  * debian/control: increase debhelper to 11.1 for improved not-installed usage
 
- -- Fabio Fantoni <fantonifabio@tiscali.it>  Wed, 18 Apr 2018 21:31:57 +0200
+  [ Maximiliano Curia ]
+  * Update mimeapps, thunderbird recovered its name
+  * Drop unused source lintian override
+  * Bump Standards-Version to 4.1.4.
+  * Bump group breaks (3.8)
+  * Release to experimental
+
+ -- Maximiliano Curia <maxy@debian.org>  Sat, 05 May 2018 14:30:06 +0200
 
 cinnamon-desktop (3.6.2-2) unstable; urgency=medium
 
