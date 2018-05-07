@@ -1,3 +1,9 @@
+cinnamon-desktop (3.8.1-1~) UNRELEASED; urgency=medium
+
+  * New upstream release (3.8.1).
+
+ -- Fabio Fantoni <fantonifabio@tiscali.it>  Mon, 07 May 2018 13:12:08 +0200
+
 cinnamon-desktop (3.8.0-1) experimental; urgency=medium
 
   [ Fabio Fantoni ]
