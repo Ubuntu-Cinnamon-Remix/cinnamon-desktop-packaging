@@ -1,8 +1,11 @@
-cinnamon-desktop (3.8.1-2~) UNRELEASED; urgency=medium
+cinnamon-desktop (3.8.1-2) unstable; urgency=medium
 
   * New revision
+  * Drop dbgsym-migration rule\
+  * Enable hardening bindnow
+  * Release to unstable
 
- -- Maximiliano Curia <maxy@debian.org>  Fri, 03 Aug 2018 13:43:21 +0200
+ -- Maximiliano Curia <maxy@debian.org>  Tue, 07 Aug 2018 14:51:30 +0200
 
 cinnamon-desktop (3.8.1-1) experimental; urgency=medium
 
