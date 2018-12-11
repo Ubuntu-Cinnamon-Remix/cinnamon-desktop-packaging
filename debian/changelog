@@ -1,0 +1,440 @@
+cinnamon-desktop (4.0.1) tessa; urgency=medium
+
+  [ Clement Lefebvre ]
+  * CI: Remove Mint 18
+
+  [ Michael Webster ]
+  * screensaver schema: deprecate screensaver plugin keys.
+
+ -- Clement Lefebvre <root@linuxmint.com>  Mon, 12 Nov 2018 15:05:18 +0000
+
+cinnamon-desktop (4.0.0) tessa; urgency=medium
+
+  [ Soapux ]
+  * Update style of meson build options (#116)
+
+  [ Jackson Dearnley ]
+  * org.cinnamon.default-applications.gschema.xml.in.in: Define schema for a default calculator application (#120)
+
+ -- Clement Lefebvre <root@linuxmint.com>  Tue, 30 Oct 2018 14:03:01 +0000
+
+cinnamon-desktop (3.8.1) tara; urgency=medium
+
+  [ Jason Hicks ]
+  * Add key binding setting for showing desklets (#115)
+
+  [ Soapux ]
+  * Fix pkgconfig version and fix spacing (#113)
+
+ -- Clement Lefebvre <root@linuxmint.com>  Sun, 06 May 2018 15:37:14 +0100
+
+cinnamon-desktop (3.8.0) tara; urgency=medium
+
+  [ Michael Webster ]
+  * gnome-wall-clock.c: adjust DATE_ONLY msgid to match the one originally in cinnamon-screensaver, and graft in existing translations from cinnamon-screensaver 3.2.2.
+  * gnome-wall-clock.c: Add some comments for translators for our date formats.
+
+  [ Clement Lefebvre ]
+  * Add CI configuration
+  * Fix CI
+  * Fix CI
+  * CI: Rename GHR tags
+  * CI: Simplify GH release archive name
+  * Remove gsettings key org.cinnamon.desktop.interface gtk-decoration-layout
+  * Add a setting for maximum sound volume.
+  * Don't use -x with gnome-terminal
+  * Revert "Don't use -x with gnome-terminal"
+
+  [ Félix Piédallu ]
+  * Add Meson Build support.
+  * Use Meson for Debian packaging
+  * Removed Autotools build system
+
+  [ Michael Webster ]
+  * Remove libgsystem
+  * Add schema compile post-install; debian: package debug symbols; add debian/clean, remove override; Fix gschema enum generation; Couple of build fixes, warnings
+  * Fix AccountsService set_background check
+  * Make alsa support opt-in (We've never built with it, I don't want to accidentally start at this time)
+  * libcvc: fix pc version, libcinnamon-desktop: fix enum generation
+  * gnome-bg.c: Add support for setting the user background via org.freedesktop.DisplayManager.AccountsService, while retaining support for the old method (for mint 18/xenial.)
+  * gnome-bg.c: Fix SetBackgroundFile call - parameters must be a GVariant tuple.
+
+  [ Jason Hicks ]
+  * Notifications: Add bottom position option (#100)
+
+  [ itzexor ]
+  * gnome-bg: don't unref NULL gvariant (#106)
+
+  [ James Ross ]
+  * gnome-bg: proper fix for NULL gvariant unref (#109)
+
+  [ Fabio Fantoni ]
+  * Add debian/not-installed
+  * Add maint script to remove old config file
+  * debian: migration to python3
+  * debian: wrap-and-sort -bst
+  * debian/control: drop not needed XS-Testsuite field
+  * update debian/copyright
+  * remove a lintian override no longer needed
+  * small improve to debian/control
+  * debian/copyright: missed one removed file
+  * Bump debhelper build-dep and compat to 10
+  * Drop disabled debian/tests
+  * Drop dh's parallel arg (no longer needed with dh >= 10)
+
+ -- Clement Lefebvre <root@linuxmint.com>  Mon, 16 Apr 2018 15:18:42 +0100
+
+cinnamon-desktop (3.6.2) sylvia; urgency=medium
+
+  * Set org.cinnamon.desktop.screensaver ask-for-away-message to False
+
+ -- Clement Lefebvre <root@linuxmint.com>  Sat, 11 Nov 2017 17:16:29 +0000
+
+cinnamon-desktop (3.6.1) sylvia; urgency=medium
+
+  * Default: Change idle-delay default to 15 min.
+  * Remove obsolete gsettings key
+
+ -- Clement Lefebvre <root@linuxmint.com>  Thu, 09 Nov 2017 12:38:36 +0000
+
+cinnamon-desktop (3.6.0) sylvia; urgency=medium
+
+  [ Michael Webster ]
+  * gnome-wall-clock: Improve api, handle seconds timing based on format string
+
+  [ leigh123linux ]
+  * Use logind for default
+
+  [ Troy Curtis ]
+  * Trivial syntax fixes to support python3. (#97)
+
+ -- Clement Lefebvre <root@linuxmint.com>  Sun, 13 Aug 2017 15:02:01 -0400
+
+cinnamon-desktop (3.4.2) sonya; urgency=medium
+
+  [ Michael Webster ]
+  * gnome-wall-clock: Add functionality to allow setting the update interval.  
+
+ -- Clement Lefebvre <root@linuxmint.com>  Tue, 20 Jun 2017 15:24:51 +0200
+
+cinnamon-desktop (3.4.1) sonya; urgency=medium
+
+  [ Clement Lefebvre ]
+  * Packaging: Don't expect gnome_bg_set_accountsservice_background() in symbols as it might not be there.
+
+  [ Michael Webster ]
+  * gnome-desktop-thumbnail: add EFAULT as an exception to the permission check.  See https://github.com/linuxmint/nemo/commit/b58bea5384436fda9cb6b31f7010f72d3c74e76a.
+
+ -- Clement Lefebvre <root@linuxmint.com>  Tue, 23 May 2017 15:31:13 +0100
+
+cinnamon-desktop (3.4.0) sonya; urgency=medium
+
+  [ JosephMcc ]
+  * schemas: Add some new keys for High Contrast
+
+  [ brownsr ]
+  * gvc-mixer-control: fix double-free when setting headset https://git.gnome.org/browse/libgnome-volume-control/commit/?id=a28e23d9006a32c8982ad8bda11fec131c6b36e8 https://git.gnome.org/browse/libgnome-volume-control/commit/?id=25bf3ed75fa604fa73e8b25241119a993fc659d6
+  * gvc-mixer-control: fix reference being leaked https://git.gnome.org/browse/libgnome-volume-control/commit/?id=d52194fce13f4b477afc997ff752233aa6886cbf
+
+  [ leigh123linux ]
+  * remove aclocal from autogen
+  * Add detection for accountsservice background as it's ubuntu only
+
+ -- Clement Lefebvre <root@linuxmint.com>  Wed, 03 May 2017 12:11:53 +0100
+
+cinnamon-desktop (3.2.4) serena; urgency=medium
+
+  * Fix dpkg build
+
+ -- Clement Lefebvre <root@linuxmint.com>  Tue, 13 Dec 2016 23:00:05 +0000
+
+cinnamon-desktop (3.2.3) serena; urgency=medium
+
+  [ leigh123linux ]
+  * remove pam leftovers
+
+  [ Clement Lefebvre ]
+  * Privacy: Disable tracking of recent files by default
+
+ -- Clement Lefebvre <root@linuxmint.com>  Tue, 13 Dec 2016 22:24:33 +0000
+
+cinnamon-desktop (3.2.2) serena; urgency=medium
+
+  [ Dustin Falgout ]
+  * Update pam config for multi-distro compatibility
+
+  [ leigh123linux ]
+  * media-keys: Add Rotation lock support
+
+  [ Michael Webster ]
+  * Remove PAM authentication - this is moved back to cinnamon-screensaver, the only current user - the way we need to use the system is too tightly tied to the UI, so it's better off that it all be together - sorry, maintainers :(
+  * screensaver schema: Add floating widget preference.
+
+ -- Clement Lefebvre <root@linuxmint.com>  Sat, 10 Dec 2016 11:52:44 +0000
+
+cinnamon-desktop (3.2.1) serena; urgency=medium
+
+  [ leigh123linux ]
+  * Update PAM for Fedora selinux
+  * Fix includes for libcvc
+
+  [ Didenko Vladimir ]
+  * Port some PAM code from cinnamon-screensaver 3.0: 1) Don't check return value of pam_acct_mgmt. On some systems it can fail because account modules are not configured properly or because this check requires additional privileges; 2) Call pam_setcred() to refresh credentials
+
+ -- Clement Lefebvre <root@linuxmint.com>  Wed, 23 Nov 2016 12:43:16 +0000
+
+cinnamon-desktop (3.2.0) serena; urgency=medium
+
+  [ brownsr ]
+  * avoid some warning messages
+  * avoid some compiler warnings
+
+  [ Maximiliano Curia ]
+  * Migrate away from gnome-common deprecated vars and macros
+
+  [ Michael Webster ]
+  * gnome-bg: Add an introspectable method to GnomeBG to allow setting a GtkImage with a background surface.
+  * gnome-bg.c: use gdk_cairo_surface_create_from_pixbuf() for creating GtkImage surfaces - this handles widget scale factors for us, and gives back the correct size/scale image surface.
+  * gnome-desktop-utils: Add a pam password check function
+  * Add /etc/pam.d/cinnamon-desktop to build and packaging to allow authentication to work (debian-based uses debian/cinnamon-desktop.pam rather than the one in /data.
+  * Add flag image files to be shared with cinnamon, cinnamon-screensaver.
+  * screensaver schema: Add flag, keyboard layout, and clock visiblity keys.
+
+  [ Clement Lefebvre ]
+  * Fixed build
+
+  [ leigh123linux ]
+  * Delete COPYING-DOCS
+  * There is no need for this as there are no docs
+  * hack the path as the macro doesn't work
+
+  [ Maximiliano Curia ]
+  * Make AX_ macros optional
+
+  [ Michael Webster ]
+  * Remove flag files (provided by xapps now)
+  * screensaver schema: Add caps keyboard layout option.
+  * screensaver schema: add albumart preference
+  * gnome-desktop-thumbnail.c: remove hardcoded GdkPixbuf blacklist, and make mimetypes in the "disable" gsettings key apply to the entire thumbnail factory, not just pluggable thumbnailers.
+
+  [ leigh123linux ]
+  * fix fsf address
+
+  [ Michael Webster ]
+  * Move flag, uppercase prefs from screensaver to interface schema, and add a preference for layout name.
+  * Add screensaver lockdown preferences
+
+ -- Clement Lefebvre <root@linuxmint.com>  Mon, 07 Nov 2016 10:32:05 +0000
+
+cinnamon-desktop (3.0.2) sarah; urgency=medium
+
+  [ Michael Webster ]
+  * libcvc: update doap file
+  * Fix formatting of doap file.
+  * org.cinnamon.desktop.interface schema: Add setting for gtk overlay scrollbars.
+
+  [ Clement Lefebvre ]
+  * Backgrounds: Take EXIF rotation tags into consideration
+
+ -- Clement Lefebvre <root@linuxmint.com>  Fri, 20 May 2016 11:59:50 +0100
+
+cinnamon-desktop (3.0.1) sarah; urgency=medium
+
+  [ Igor ]
+  * Fix possible NULL pointer dereference
+  * Fix usage of uninitialized values
+
+  [ Clement Lefebvre ]
+  * Disable event-sounds by default
+  * Disable audible-bell by default
+
+  [ Michael Webster ]
+  * debian/control: remove dependency on gnome-packagekit-session.
+
+ -- Clement Lefebvre <root@linuxmint.com>  Tue, 10 May 2016 16:34:06 +0100
+
+cinnamon-desktop (3.0.0) sarah; urgency=medium
+
+  [ Michael Webster ]
+  * a11y schema: limit desktop zoom max magnification to 15x
+  * Add installer functions to check and install packages via PackageKit.
+  * control: add gnome-packagekit-session install dep.
+  * enums: Add zoom lens shape enum and magnifier key
+  * gnome-installer: use a GTask for the IsInstalled loop, so the main thread isn't blocked.  Add some feedback to the test script to check this.
+  * Schemas: add a few keys for a11y stuff
+  * Add libcvc source and packages to build.
+  * libcvc: header file fixes for including in C
+  * gvc-channel-map.h: add missing include
+  * gvc-channel-map.c: Remove redundant include
+
+  [ monsta ]
+  * thumbnail: Fix a code path where the mutex is never unlocked
+
+  [ Stephen Collins ]
+  * Some fixes for introspection
+  * Cvc: some fixes for introspection
+  * Cvc: add introspection functions for balance, fade and lfe
+  * libcvc: Add stream montor functionality
+  * gvc_mixer_ui_device.c: fix comment block causing a build warning
+  * libcvc: fix some more build warnings
+
+ -- Clement Lefebvre <root@linuxmint.com>  Sat, 23 Apr 2016 15:57:45 +0100
+
+cinnamon-desktop (2.8.0) rosa; urgency=medium
+
+  [ Dexter Chua ]
+  * Make cinnamon-desktop buildable with make
+
+  [ mtwebster ]
+  * gnome-desktop-thumbnailer.c: block known-buggy image types from being thumbnailed.
+
+  [ Mike Gerow ]
+  * Create keybinding for XF86AudioMicMute => mic-mute
+
+  [ leigh123linux ]
+  * fix xml bg warning
+
+ -- Clement Lefebvre <root@linuxmint.com>  Fri, 16 Oct 2015 13:59:41 +0100
+
+cinnamon-desktop (2.6.5) rafaela; urgency=medium
+
+  [ Dexter Chua ]
+  * screensaver schemas: use a default value that exists
+
+  [ Clement Lefebvre ]
+  * Ignore X errors when applying xrandr configuration (fixes CSD crashes with NVIDIA cards https://github.com/linuxmint/cinnamon-settings-daemon/issues/52) Ignore X errors when performing BG crossfade (should make it more stable and we might use it again in 2.8 as a result)
+
+ -- Clement Lefebvre <root@linuxmint.com>  Mon, 22 Jun 2015 22:22:33 +0200
+
+cinnamon-desktop (2.6.4) rafaela; urgency=medium
+
+  * Added keybinding to restart cinnamon (used by cinnamon-killer-daemon)
+
+ -- Clement Lefebvre <root@linuxmint.com>  Sat, 30 May 2015 12:40:30 +0200
+
+cinnamon-desktop (2.6.3) rafaela; urgency=medium
+
+  [ Michael Webster ]
+  * Add public method to gnome-desktop-utils to return a best-guess session user.
+  * gnome-bg: fix build warning
+
+  [ Clement Lefebvre ]
+  * Split "use-systemd" configuration key into three keys for CSD, CSM and screensaver
+
+ -- Clement Lefebvre <root@linuxmint.com>  Mon, 25 May 2015 10:12:29 +0200
+
+cinnamon-desktop (2.6.2) rafaela; urgency=medium
+
+  [ mtwebster ]
+  * gnome-desktop-thumbnail: always return a user.
+
+ -- Clement Lefebvre <root@linuxmint.com>  Thu, 21 May 2015 12:28:14 +0200
+
+cinnamon-desktop (2.6.1) rafaela; urgency=medium
+
+  * gnome-desktop-thumbnail: add public thumbnail utility functions. - Do quick self-check upon factory creation, self-disable if problems   are found - added check and fix functions
+
+ -- Clement Lefebvre <root@linuxmint.com>  Thu, 21 May 2015 10:58:30 +0200
+
+cinnamon-desktop (2.6.0) rafaela; urgency=medium
+
+  * 2.6.0
+
+ -- Clement Lefebvre <root@linuxmint.com>  Tue, 19 May 2015 17:03:55 +0200
+
+cinnamon-desktop (2.5.1) unstable; urgency=medium
+
+  * 2.5.x
+
+ -- Clement Lefebvre <root@linuxmint.com>  Tue, 13 Jan 2015 10:53:33 +0100
+
+cinnamon-desktop (2.4.2) rebecca; urgency=medium
+
+  * Make migrate script compatible with glib < 2.40
+  * migration script: fix glib alternate code so it doesn't wipe out defaults in the new schema.
+
+ -- Clement Lefebvre <root@linuxmint.com>  Sat, 22 Nov 2014 17:22:35 +0100
+
+cinnamon-desktop (2.4.1) rebecca; urgency=medium
+
+  * keybinding migration script: add run-once check
+
+ -- Clement Lefebvre <root@linuxmint.com>  Sat, 08 Nov 2014 09:59:23 +0100
+
+cinnamon-desktop (2.4.0) rebecca; urgency=medium
+
+  * 2.4.0
+
+ -- Clement Lefebvre <root@linuxmint.com>  Fri, 31 Oct 2014 14:48:30 +0100
+
+cinnamon-desktop (2.3.0) unstable; urgency=medium
+
+  * 2.3.0
+
+ -- Clement Lefebvre <root@linuxmint.com>  Fri, 27 Jun 2014 14:21:48 +0100
+
+cinnamon-desktop (2.2.3) qiana; urgency=medium
+
+  * 2.2.3
+
+ -- Clement Lefebvre <root@linuxmint.com>  Tue, 20 May 2014 14:06:44 +0100
+
+cinnamon-desktop (2.2.2) qiana; urgency=medium
+
+  * 2.2.2
+
+ -- Clement Lefebvre <root@linuxmint.com>  Sun, 11 May 2014 09:30:37 +0100
+
+cinnamon-desktop (2.2.1) qiana; urgency=medium
+
+  * 2.2.1
+
+ -- Clement Lefebvre <root@linuxmint.com>  Sat, 03 May 2014 15:32:43 +0100
+
+cinnamon-desktop (2.2.0) qiana; urgency=medium
+
+  * 2.2.0
+
+ -- Clement Lefebvre <root@linuxmint.com>  Sat, 12 Apr 2014 10:51:49 +0100
+
+cinnamon-desktop (2.0.4) petra; urgency=low
+
+  * 2.0.4
+
+ -- Clement Lefebvre <root@linuxmint.com>  Fri, 22 Nov 2013 10:51:22 +0000
+
+cinnamon-desktop (2.0.3) petra; urgency=low
+
+  * 2.0.3
+
+ -- Clement Lefebvre <root@linuxmint.com>  Sun, 03 Nov 2013 15:46:22 +0000
+
+cinnamon-desktop (2.0.2) petra; urgency=low
+
+  * 2.0.2
+
+ -- Clement Lefebvre <root@linuxmint.com>  Thu, 24 Oct 2013 11:12:42 +0100
+
+cinnamon-desktop (2.0.1) petra; urgency=low
+
+  * 2.0.1
+
+ -- Clement Lefebvre <root@linuxmint.com>  Wed, 09 Oct 2013 10:51:20 +0100
+
+cinnamon-desktop (2.0.0) petra; urgency=low
+
+  * 2.0.0
+
+ -- Clement Lefebvre <root@linuxmint.com>  Wed, 02 Oct 2013 13:46:35 +0100
+
+cinnamon-desktop (1.9.1) petra; urgency=low
+
+  * 1.9.1
+
+ -- Clement Lefebvre <root@linuxmint.com>  Mon, 30 Sep 2013 13:38:08 +0100
+
+cinnamon-desktop (1.0.0) nadia; urgency=low
+
+  * Initial fork from Ubuntu gnome-desktop3 3.6.3
+
+ -- Michael Webster <miketwebster@gmail.com>  Fri, 23 Aug 2013 20:07:42 -0400
