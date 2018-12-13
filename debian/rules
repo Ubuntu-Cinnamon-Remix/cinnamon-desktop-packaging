@@ -8,8 +8,8 @@ export DEB_BUILD_MAINT_OPTIONS = hardening=+bindnow
 
 override_dh_auto_configure:
 	dh_auto_configure -- \
-	    -Dpnp-ids=/usr/share/hwdata/pnp.ids \
-	    -Ddeprecation-warnings=false
+	    -Dpnp_ids=/usr/share/hwdata/pnp.ids \
+	    -Ddeprecation_warnings=false
 
 # --list-missing will be default in compat 12
 override_dh_missing:
