@@ -65,3 +65,8 @@ piuparts:
         done
   variables:
     GIT_STRATEGY: fetch
+
+rc-bugs:
+  extends: .test-rc-bugs
+  before_script:
+    - apt-get install -y python3-debianbts
