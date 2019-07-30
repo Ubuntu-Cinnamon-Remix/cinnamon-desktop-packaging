@@ -6,32 +6,15 @@ variables:
   SALSA_CI_DISABLE_MISSING_BREAKS: 0
   SALSA_CI_DISABLE_RC_BUGS: 0
 
-# Add an extra apt repository sources.list if EXTRA_REPOSITORY is set.
-# The EXTRA_REPOSITORY and EXTRA_REPOSITORY_KEY variables are of type
-# file, to ease handling multilines, but it means that the variables
-# contain the names of files with the provided content.
-add_extra_repository:
-  - |
-    set -x
-    if [ -n "${EXTRA_REPOSITORY}" ]; then
-      cp "${EXTRA_REPOSITORY}" ${TARGET_ETC:-/etc}/apt/sources.list.d/extra_repository.list
-      if [ -n "${EXTRA_REPOSITORY_KEY}" ]; then
-        cp "${EXTRA_REPOSITORY_KEY}" \
-           ${TARGET_ETC:-/etc}/apt/trusted.gpg.d/extra_repository.asc
-      fi
-    fi
-
 build:
   extends: .build-package
   before_script:
-    <<: *add_extra_repository
-    - apt-get update
+    - debian/add_extra_repository.sh -e ${EXTRA_REPOSITORY} -k ${EXTRA_REPOSITORY_KEY} -u
 
 reprotest:
   extends: .test-reprotest-no-diffoscope
   before_script:
-    <<: *add_extra_repository
-    - apt-get update
+    - debian/add_extra_repository.sh -e ${EXTRA_REPOSITORY} -k ${EXTRA_REPOSITORY_KEY} -u
 
 autopkgtest:
   extends: .test-autopkgtest
@@ -43,12 +26,14 @@ autopkgtest:
         cat >/etc/lxc/lxc.conf <<EOT
         lxc.lxcpath=${SCI_LXC_PATH}
         EOT
-    - export TARGET_ETC="${SCI_LXC_PATH}/autopkgtest-${RELEASE}-amd64/rootfs/etc"
-    <<: *add_extra_repository
+    - debian/add_extra_repository.sh -e ${EXTRA_REPOSITORY} -k ${EXTRA_REPOSITORY_KEY} \
+        -t "${SCI_LXC_PATH}/autopkgtest-${RELEASE}-amd64/rootfs/etc"
     - umount -R /sys/fs/cgroup && mount -a
     - /etc/init.d/lxc-net start
     - /etc/init.d/lxc start
     - debci localtest $CI_PROJECT_DIR/debian/output/*.changes --suite ${RELEASE} || ( ret=$?; [ $ret -eq 8 ] || [ $ret -eq 2 ] )
+  variables:
+    GIT_STRATEGY: fetch
 
 piuparts:
   extends: .test-piuparts
@@ -63,8 +48,8 @@ piuparts:
     - mkdir -p ${CHROOT_PATH}/etc-target/apt/sources.list.d ${CHROOT_PATH}/etc-target/apt/preferences.d
     - cp -aTLv /etc/apt/sources.list.d  ${CHROOT_PATH}/etc-target/apt/sources.list.d
     - cp -aTLv /etc/apt/preferences.d  ${CHROOT_PATH}/etc-target/apt/preferences.d
-    - export TARGET_ETC="${CHROOT_PATH}/etc-target"
-    <<: *add_extra_repository
+    - debian/add_extra_repository.sh -e ${EXTRA_REPOSITORY} -k ${EXTRA_REPOSITORY_KEY} \
+        -t "${CHROOT_PATH}/etc-target"
     - cp -aTLv /srv/local-apt-repository ${CHROOT_PATH}/srv/local-apt-repository
     - cp -aTLv /var/lib/local-apt-repository/ ${CHROOT_PATH}/var/lib/local-apt-repository/
     - sed  '/127.0.0.1/s/localhost/pipeline.salsa.debian.org localhost/' /etc/hosts > ${CHROOT_PATH}/etc/hosts
@@ -78,8 +63,5 @@ piuparts:
         for PACKAGE in $(ls ${WORKING_DIR}/*.deb); do
             piuparts --mirror "${SALSA_CI_MIRROR} ${SALSA_CI_COMPONENTS}" ${SALSA_CI_PIUPARTS_ARGS} --scriptsdir /etc/piuparts/scripts --allow-database --warn-on-leftovers-after-purge --hard-link -e ${CHROOT_PATH} ${PIUPARTS_DISTRIBUTION_ARG} ${PACKAGE}
         done
-
-rc-bugs:
-  extends: .test-rc-bugs
-  before_script:
-    - apt-get install -y python3-debianbts
+  variables:
+    GIT_STRATEGY: fetch
