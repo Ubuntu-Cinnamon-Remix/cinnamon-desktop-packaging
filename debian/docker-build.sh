@@ -50,9 +50,7 @@ set -x
 
 eval docker cp /etc/apt/sources.list.d/./ ${CONTAINER_ID}:/etc/apt/sources.list.d/
 
-if [ -f /etc/apt/trusted.gpg.d/extra_repository.asc ]; then
-    eval docker cp /etc/apt/trusted.gpg.d/extra_repository.asc ${CONTAINER_ID}:/etc/apt/trusted.gpg.d/extra_repository.asc
-fi
+eval docker cp /etc/apt/trusted.gpg.d/./ ${CONTAINER_ID}:/etc/apt/trusted.gpg.d/
 
 eval docker cp /etc/apt/preferences.d/./ ${CONTAINER_ID}:/etc/apt/preferences.d/
 
