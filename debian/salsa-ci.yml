@@ -10,6 +10,21 @@ build:
   extends: .build-package
   before_script:
     - debian/add_extra_repository.sh -v -e "${EXTRA_REPOSITORY}" -k "${EXTRA_REPOSITORY_KEY}" -u
+  script:
+    - mkdir -p ${WORKING_DIR} ${CCACHE_WORK_DIR}
+    - mv ${CCACHE_WORK_DIR} ${CCACHE_TMP_DIR}
+    - add_extra_repository.sh -v -e "${EXTRA_REPOSITORY}" -k "${EXTRA_REPOSITORY_KEY}" -u
+    - gbp pull --ignore-branch --pristine-tar --track-missing
+    - |
+      # Check if we can obtain the orig from the git branches
+      if ! gbp export-orig --tarball-dir=${WORKING_DIR}; then
+        # Fallback using origtargz
+        origtargz -dt
+        mv ../*.orig.* ${WORKING_DIR}
+        gbp_args="--git-overlay"
+      fi
+      gbp buildpackage --git-ignore-branch --git-ignore-new --git-no-create-orig $gbp_args --git-export-dir=${WORKING_DIR} --git-builder="debian/docker-build.sh ${SALSA_CI_IMAGES_DOCKERBUILDER}"
+    - mv ${CCACHE_TMP_DIR} ${CCACHE_WORK_DIR}
 
 reprotest:
   extends: .test-reprotest-no-diffoscope
