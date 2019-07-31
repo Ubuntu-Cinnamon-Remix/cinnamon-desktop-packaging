@@ -13,7 +13,6 @@ build:
   script:
     - mkdir -p ${WORKING_DIR} ${CCACHE_WORK_DIR}
     - mv ${CCACHE_WORK_DIR} ${CCACHE_TMP_DIR}
-    - add_extra_repository.sh -v -e "${EXTRA_REPOSITORY}" -k "${EXTRA_REPOSITORY_KEY}" -u
     - gbp pull --ignore-branch --pristine-tar --track-missing
     - |
       # Check if we can obtain the orig from the git branches
