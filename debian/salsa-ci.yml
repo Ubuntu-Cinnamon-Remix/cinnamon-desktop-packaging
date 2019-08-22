@@ -5,10 +5,3 @@ include:
 variables:
   SALSA_CI_DISABLE_MISSING_BREAKS: 0
   SALSA_CI_DISABLE_RC_BUGS: 0
-
-rc-bugs:
-  extends: .test-rc-bugs
-  script:
-    - debian/check_rc_bugs.py -o ${WORKING_DIR}/rc_bugs.xml --changes-file ${WORKING_DIR}/*.changes
-  variables:
-      GIT_STRATEGY: fetch
