@@ -1,8 +1,8 @@
 # Meson build file
 
 # https://github.com/linuxmint/cinnamon-desktop
-project('cinnamon-desktop', 'c', version: '4.0.1',
-  meson_version: '>=0.37.0'
+project('cinnamon-desktop', 'c', version: '4.2.0',
+  meson_version: '>=0.41.0'
 )
 
 # Before making a release, the LT_VERSION string should be modified.
@@ -124,7 +124,6 @@ configure_file(
 
 subdir('install-scripts')
 subdir('po')
-subdir('files')
 subdir('libcinnamon-desktop')
 subdir('libcvc')
 subdir('schemas')
