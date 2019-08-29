@@ -4,6 +4,12 @@ cinnamon-desktop (4.2.0-1~) UNRELEASED; urgency=medium
 
  -- Norbert Preining <norbert@preining.info>  Thu, 29 Aug 2019 09:25:52 +0900
 
+cinnamon-desktop (4.0.1-1~) UNRELEASED; urgency=medium
+
+  * New upstream release (4.0.1)
+
+ -- Norbert Preining <preining@debian.org>  Thu, 13 Dec 2018 22:02:46 +0900
+
 cinnamon-desktop (3.8.1-2) unstable; urgency=medium
 
   * New revision
