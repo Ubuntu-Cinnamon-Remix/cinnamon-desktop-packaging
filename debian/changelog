@@ -1,8 +1,21 @@
-cinnamon-desktop (4.0.1-1~) UNRELEASED; urgency=medium
+cinnamon-desktop (4.0.1-1) unstable; urgency=medium
 
+  [ Norbert Preining ]
   * New upstream release (4.0.1)
 
- -- Norbert Preining <preining@debian.org>  Thu, 13 Dec 2018 22:02:46 +0900
+  [ Maximiliano Curia ]
+  * Add a basic salsa-ci.yml config
+  * Bump Standards Version to 4.4.0
+  * Add an extra repository
+  * Build with extra repository
+  * Copy the trusted.gpg.d instead of just one file
+  * Test check_rc_bugs.py with the junit output
+  * I do need to fetch the git repo to test this
+  * Use salsa-ci/pipeline
+  * Add a basic gbp.conf
+  * Release to unstable
+
+ -- Maximiliano Curia <maxy@debian.org>  Thu, 29 Aug 2019 12:04:47 -0300
 
 cinnamon-desktop (3.8.1-2) unstable; urgency=medium
 
