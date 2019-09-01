@@ -1,8 +1,9 @@
-cinnamon-desktop (4.2.0-1~) UNRELEASED; urgency=medium
+cinnamon-desktop (4.2.0-1) experimental; urgency=medium
 
   * New upstream release (4.2.0)
+  * add myself to uploaders, release to experimental
 
- -- Norbert Preining <norbert@preining.info>  Thu, 29 Aug 2019 09:25:52 +0900
+ -- Norbert Preining <norbert@preining.info>  Sun, 01 Sep 2019 10:52:29 +0900
 
 cinnamon-desktop (4.0.1-1) unstable; urgency=medium
 
