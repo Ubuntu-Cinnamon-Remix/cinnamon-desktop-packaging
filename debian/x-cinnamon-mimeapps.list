@@ -1,16 +1,16 @@
 [Default Applications]
-application/pdf=evince.desktop;
-application/postscript=evince.desktop;
-application/x-dvi=evince.desktop;
-application/x-ext-djv=evince.desktop;
-application/x-ext-djvu=evince.desktop;
-application/x-ext-dvi=evince.desktop;
-application/x-ext-eps=inkscape.desktop;evince.desktop;
+application/pdf=org.gnome.Evince.desktop;
+application/postscript=org.gnome.Evince.desktop;
+application/x-dvi=org.gnome.Evince.desktop;
+application/x-ext-djv=org.gnome.Evince.desktop;
+application/x-ext-djvu=org.gnome.Evince.desktop;
+application/x-ext-dvi=org.gnome.Evince.desktop;
+application/x-ext-eps=inkscape.desktop;org.gnome.Evince.desktop;
 application/x-ext-pdf=evince.deskto;
-application/x-ext-ps=evince.desktop;
-image/vnd.djvu+multipage=evince.desktop;
-image/vnd.djvu=evince.desktop;
-image/x-eps=inkscape.desktop;evince.desktop;
+application/x-ext-ps=org.gnome.Evince.desktop;
+image/vnd.djvu+multipage=org.gnome.Evince.desktop;
+image/vnd.djvu=org.gnome.Evince.desktop;
+image/x-eps=inkscape.desktop;org.gnome.Evince.desktop;
 
 image/bmp=eog.desktop;gimp.desktop;
 image/gif=eog.desktop;gimp.desktop;
