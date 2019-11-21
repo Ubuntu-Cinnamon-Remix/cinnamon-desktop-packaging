@@ -1,3 +1,9 @@
+cinnamon-desktop (4.2.0-3) UNRELEASED; urgency=medium
+
+  * Remove gnome-doc-utils, yelp-tools is used (Closes: #945137) 
+
+ -- Norbert Preining <norbert@preining.info>  Thu, 21 Nov 2019 18:25:12 +0900
+
 cinnamon-desktop (4.2.0-2) unstable; urgency=medium
 
   * Upload to unstable
