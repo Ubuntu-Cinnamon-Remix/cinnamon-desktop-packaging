@@ -161,6 +161,7 @@ libcinnamon-desktop.so.4 libcinnamon-desktop4 #MINVER#
  gnome_wall_clock_get_default_date_format@Base 3.6.0
  gnome_wall_clock_get_default_time_format@Base 3.6.0
  gnome_wall_clock_get_type@Base 2.0.4
+ gnome_wall_clock_lctime_format@Base 4.4.0
  gnome_wall_clock_new@Base 3.2.0
  gnome_wall_clock_set_format_string@Base 3.6.0
  gnome_xkb_info_description_for_option@Base 2.0.4
