@@ -1,10 +1,10 @@
-cinnamon-desktop (4.4.0-1~1) UNRELEASED; urgency=medium
+cinnamon-desktop (4.4.1-1~1) UNRELEASED; urgency=medium
 
+  * New upstream version 4.4.1
   * Remove gnome-doc-utils, yelp-tools is used (Closes: #945137) 
-  * New upstream version 4.4.0
   * Update symbols file
 
- -- Norbert Preining <norbert@preining.info>  Tue, 26 Nov 2019 13:49:23 +0900
+ -- Norbert Preining <norbert@preining.info>  Mon, 06 Jan 2020 11:19:22 +0900
 
 cinnamon-desktop (4.2.0-2) unstable; urgency=medium
 
