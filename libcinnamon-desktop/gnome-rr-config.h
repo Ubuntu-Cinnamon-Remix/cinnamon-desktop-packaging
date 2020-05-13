@@ -59,7 +59,7 @@ typedef struct
 
 GType gnome_rr_output_info_get_type (void);
 
-char *gnome_rr_output_info_get_name (GnomeRROutputInfo *self);
+const char *gnome_rr_output_info_get_name (GnomeRROutputInfo *self);
 
 gboolean gnome_rr_output_info_is_active  (GnomeRROutputInfo *self);
 void     gnome_rr_output_info_set_active (GnomeRROutputInfo *self, gboolean active);
@@ -67,8 +67,14 @@ void     gnome_rr_output_info_set_active (GnomeRROutputInfo *self, gboolean acti
 void gnome_rr_output_info_get_geometry (GnomeRROutputInfo *self, int *x, int *y, int *width, int *height);
 void gnome_rr_output_info_set_geometry (GnomeRROutputInfo *self, int  x, int  y, int  width, int  height);
 
-int  gnome_rr_output_info_get_refresh_rate (GnomeRROutputInfo *self);
+float gnome_rr_output_info_get_scale (GnomeRROutputInfo *self);
+void gnome_rr_output_info_set_scale (GnomeRROutputInfo *self, float scale);
+
+int gnome_rr_output_info_get_refresh_rate (GnomeRROutputInfo *self);
 void gnome_rr_output_info_set_refresh_rate (GnomeRROutputInfo *self, int rate);
+
+double gnome_rr_output_info_get_refresh_rate_f (GnomeRROutputInfo *self);
+void gnome_rr_output_info_set_refresh_rate_f (GnomeRROutputInfo *self, double rate);
 
 GnomeRRRotation gnome_rr_output_info_get_rotation (GnomeRROutputInfo *self);
 void            gnome_rr_output_info_set_rotation (GnomeRROutputInfo *self, GnomeRRRotation rotation);
@@ -86,6 +92,14 @@ void     gnome_rr_output_info_set_primary (GnomeRROutputInfo *self, gboolean pri
 int gnome_rr_output_info_get_preferred_width  (GnomeRROutputInfo *self);
 int gnome_rr_output_info_get_preferred_height (GnomeRROutputInfo *self);
 
+void gnome_rr_output_info_get_flags (GnomeRROutputInfo *self,
+                                     gboolean          *doublescan,
+                                     gboolean          *interlaced,
+                                     gboolean          *vsync);
+void gnome_rr_output_info_set_flags (GnomeRROutputInfo *self,
+                                     gboolean           doublescan,
+                                     gboolean           interlaced,
+                                     gboolean           vsync);
 typedef struct
 {
     GObject parent;
@@ -142,9 +156,13 @@ gboolean            gnome_rr_config_applicable   (GnomeRRConfig  *configuration,
 
 gboolean            gnome_rr_config_get_clone    (GnomeRRConfig  *configuration);
 void                gnome_rr_config_set_clone    (GnomeRRConfig  *configuration, gboolean clone);
+guint               gnome_rr_config_get_base_scale (GnomeRRConfig *self);
+void                gnome_rr_config_set_base_scale (GnomeRRConfig *self,
+                                                    guint base_scale);
 GnomeRROutputInfo **gnome_rr_config_get_outputs  (GnomeRRConfig  *configuration);
 
 char *gnome_rr_config_get_backup_filename (void);
 char *gnome_rr_config_get_intended_filename (void);
+char *gnome_rr_config_get_legacy_filename (void);
 
 #endif
