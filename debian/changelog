@@ -1,8 +1,9 @@
 cinnamon-desktop (4.6.0-1) experimental; urgency=medium
 
   * New upstream version 4.6.0
+  * switch to pci.ids from hwdata (Closes: #953296)
 
- -- Norbert Preining <norbert@preining.info>  Wed, 13 May 2020 22:22:16 +0900
+ -- Norbert Preining <norbert@preining.info>  Wed, 03 Jun 2020 07:30:33 +0900
 
 cinnamon-desktop (4.4.1-3) unstable; urgency=medium
 
