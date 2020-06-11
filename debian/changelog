@@ -1,8 +1,8 @@
-cinnamon-desktop (4.6.0-1) experimental; urgency=medium
+cinnamon-desktop (4.6.1-1) experimental; urgency=medium
 
-  * New upstream version 4.6.0
+  * New upstream version 4.6.1
 
- -- Norbert Preining <norbert@preining.info>  Wed, 13 May 2020 22:22:16 +0900
+ -- Norbert Preining <norbert@preining.info>  Thu, 11 Jun 2020 14:10:44 +0900
 
 cinnamon-desktop (4.4.1-3) unstable; urgency=medium
 
