@@ -63,9 +63,12 @@ libcinnamon-desktop.so.4 libcinnamon-desktop4 #MINVER#
  gnome_rr_config_apply_with_time@Base 2.0.4
  gnome_rr_config_ensure_primary@Base 2.0.4
  gnome_rr_config_equal@Base 2.0.4
+ gnome_rr_config_get_auto_scale@Base 4.6.3
  gnome_rr_config_get_backup_filename@Base 2.0.4
+ gnome_rr_config_get_base_scale@Base 4.6.3
  gnome_rr_config_get_clone@Base 2.0.4
  gnome_rr_config_get_intended_filename@Base 2.0.4
+ gnome_rr_config_get_legacy_filename@Base 4.6.3
  gnome_rr_config_get_outputs@Base 2.0.4
  gnome_rr_config_get_type@Base 2.0.4
  gnome_rr_config_load_current@Base 2.0.4
@@ -75,6 +78,8 @@ libcinnamon-desktop.so.4 libcinnamon-desktop4 #MINVER#
  gnome_rr_config_new_stored@Base 2.0.4
  gnome_rr_config_sanitize@Base 2.0.4
  gnome_rr_config_save@Base 2.0.4
+ gnome_rr_config_set_auto_scale@Base 4.6.3
+ gnome_rr_config_set_base_scale@Base 4.6.3
  gnome_rr_config_set_clone@Base 2.0.4
  gnome_rr_crtc_can_drive_output@Base 2.0.4
  gnome_rr_crtc_get_current_mode@Base 2.0.4
@@ -83,6 +88,7 @@ libcinnamon-desktop.so.4 libcinnamon-desktop4 #MINVER#
  gnome_rr_crtc_get_id@Base 2.0.4
  gnome_rr_crtc_get_position@Base 2.0.4
  gnome_rr_crtc_get_rotations@Base 2.0.4
+ gnome_rr_crtc_get_scale@Base 4.6.3
  gnome_rr_crtc_get_type@Base 2.0.4
  gnome_rr_crtc_set_config_with_time@Base 2.0.4
  gnome_rr_crtc_set_gamma@Base 2.0.4
@@ -93,7 +99,9 @@ libcinnamon-desktop.so.4 libcinnamon-desktop4 #MINVER#
  gnome_rr_labeler_hide@Base 2.0.4
  gnome_rr_labeler_new@Base 2.0.4
  gnome_rr_labeler_show@Base 2.0.4
+ gnome_rr_mode_get_flags@Base 4.6.3
  gnome_rr_mode_get_freq@Base 2.0.4
+ gnome_rr_mode_get_freq_f@Base 4.6.3
  gnome_rr_mode_get_height@Base 2.0.4
  gnome_rr_mode_get_id@Base 2.0.4
  gnome_rr_mode_get_type@Base 2.0.4
@@ -117,6 +125,7 @@ libcinnamon-desktop.so.4 libcinnamon-desktop4 #MINVER#
  gnome_rr_output_get_width_mm@Base 2.0.4
  gnome_rr_output_info_get_aspect_ratio@Base 2.0.4
  gnome_rr_output_info_get_display_name@Base 2.0.4
+ gnome_rr_output_info_get_flags@Base 4.6.3
  gnome_rr_output_info_get_geometry@Base 2.0.4
  gnome_rr_output_info_get_name@Base 2.0.4
  gnome_rr_output_info_get_preferred_height@Base 2.0.4
@@ -124,24 +133,33 @@ libcinnamon-desktop.so.4 libcinnamon-desktop4 #MINVER#
  gnome_rr_output_info_get_primary@Base 2.0.4
  gnome_rr_output_info_get_product@Base 2.0.4
  gnome_rr_output_info_get_refresh_rate@Base 2.0.4
+ gnome_rr_output_info_get_refresh_rate_f@Base 4.6.3
  gnome_rr_output_info_get_rotation@Base 2.0.4
+ gnome_rr_output_info_get_scale@Base 4.6.3
  gnome_rr_output_info_get_serial@Base 2.0.4
  gnome_rr_output_info_get_type@Base 2.0.4
  gnome_rr_output_info_get_vendor@Base 2.0.4
  gnome_rr_output_info_is_active@Base 2.0.4
  gnome_rr_output_info_is_connected@Base 2.0.4
  gnome_rr_output_info_set_active@Base 2.0.4
+ gnome_rr_output_info_set_flags@Base 4.6.3
  gnome_rr_output_info_set_geometry@Base 2.0.4
  gnome_rr_output_info_set_primary@Base 2.0.4
  gnome_rr_output_info_set_refresh_rate@Base 2.0.4
+ gnome_rr_output_info_set_refresh_rate_f@Base 4.6.3
  gnome_rr_output_info_set_rotation@Base 2.0.4
+ gnome_rr_output_info_set_scale@Base 4.6.3
  gnome_rr_output_is_connected@Base 2.0.4
  gnome_rr_output_is_laptop@Base 2.0.4
  gnome_rr_output_list_modes@Base 2.0.4
  gnome_rr_output_set_backlight@Base 2.0.4
  gnome_rr_output_supports_mode@Base 2.0.4
+ gnome_rr_screen_calculate_best_global_scale@Base 4.6.3
+ gnome_rr_screen_calculate_supported_scales@Base 4.6.3
  gnome_rr_screen_get_crtc_by_id@Base 2.0.4
  gnome_rr_screen_get_dpms_mode@Base 2.0.4
+ gnome_rr_screen_get_global_scale@Base 4.6.3
+ gnome_rr_screen_get_global_scale_setting@Base 4.6.3
  gnome_rr_screen_get_output_by_id@Base 2.0.4
  gnome_rr_screen_get_output_by_name@Base 2.0.4
  gnome_rr_screen_get_ranges@Base 2.0.4
@@ -154,6 +172,7 @@ libcinnamon-desktop.so.4 libcinnamon-desktop4 #MINVER#
  gnome_rr_screen_new@Base 2.0.4
  gnome_rr_screen_refresh@Base 2.0.4
  gnome_rr_screen_set_dpms_mode@Base 2.0.4
+ gnome_rr_screen_set_global_scale_setting@Base 4.6.3
  gnome_rr_screen_set_primary_output@Base 2.0.4
  gnome_rr_screen_set_size@Base 2.0.4
  gnome_wall_clock_get_clock@Base 2.0.4
