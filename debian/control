@@ -8,7 +8,7 @@ Uploaders:
  Fabio Fantoni <fantonifabio@tiscali.it>,
  Norbert Preining <norbert@preining.info>
 Build-Depends:
- debhelper (>= 11.1~),
+ debhelper-compat (= 12),
  dh-python,
  dpkg-dev (>= 1.15.1),
  gobject-introspection (>= 0.10.2-1~),
