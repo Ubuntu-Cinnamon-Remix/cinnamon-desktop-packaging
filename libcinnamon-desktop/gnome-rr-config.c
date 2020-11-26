@@ -801,7 +801,6 @@ gnome_rr_config_load_filename (GnomeRRConfig *result, const char *filename, GErr
 
             array = g_ptr_array_new ();
             for (j = 0; configs[i]->priv->outputs[j] != NULL; j++) {
-                int k;
                 g_object_ref (configs[i]->priv->outputs[j]);
                 g_ptr_array_add (array, configs[i]->priv->outputs[j]);
 
@@ -1287,26 +1286,23 @@ gnome_rr_config_sanitize (GnomeRRConfig *config)
      */
     x_offset = y_offset = G_MAXINT;
     for (i = 0; config->priv->outputs[i]; ++i)
-    {
-	GnomeRROutputInfo *output = config->priv->outputs[i];
+      {
+        GnomeRROutputInfo *output = config->priv->outputs[i];
 
-	if (output->priv->on)
-	{
-	    x_offset = MIN (x_offset, output->priv->x);
-	    y_offset = MIN (y_offset, output->priv->y);
-	}
-    }
+        if (output->priv->on)
+          {
+            x_offset = MIN (x_offset, output->priv->x);
+            y_offset = MIN (y_offset, output->priv->y);
+          }
+      }
 
     for (i = 0; config->priv->outputs[i]; ++i)
-    {
-	GnomeRROutputInfo *output = config->priv->outputs[i];
-	
-	if (output->priv->on)
-	{
-	    output->priv->x -= x_offset;
-	    output->priv->y -= y_offset;
-	}
-    }
+      {
+        GnomeRROutputInfo *output = config->priv->outputs[i];
+
+        output->priv->x -= x_offset;
+        output->priv->y -= y_offset;
+      }
 
     /* Only one primary, please */
     found = FALSE;
@@ -2057,8 +2053,7 @@ get_required_virtual_size (CrtcAssignment *assign,
 {
     GList *active_crtcs = g_hash_table_get_keys (assign->info);
     GList *list;
-    int d, crtc_count;
-    float df;
+    int crtc_count;
     float avg_screen_scale;
 
 /*
