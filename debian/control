@@ -37,11 +37,11 @@ Vcs-Git: https://salsa.debian.org/cinnamon-team/cinnamon-desktop.git
 Package: cinnamon-desktop-data
 Architecture: all
 Breaks:
- cinnamon (<< 4.6),
- cinnamon-control-center (<< 4.6),
- cinnamon-screensaver (<< 4.6),
- cinnamon-session (<< 4.6),
- cinnamon-settings-daemon (<< 4.6),
+ cinnamon (<< 4.8),
+ cinnamon-control-center (<< 4.8),
+ cinnamon-screensaver (<< 4.8),
+ cinnamon-session (<< 4.8),
+ cinnamon-settings-daemon (<< 4.8),
 Multi-Arch: foreign
 Depends: python3, python3-gi, ${misc:Depends}, ${python3:Depends}
 Description: Common files for Cinnamon desktop apps
@@ -55,9 +55,9 @@ Depends: ${gir:Depends}, ${misc:Depends}, ${shlibs:Depends}
 Description: Introspection data for CinnamonDesktop
  This package contains the introspection data for CinnamonDesktop.
 Breaks:
- cinnamon-common (<< 4.6),
- cinnamon-screensaver (<< 4.6),
- gir1.2-meta-muffin-0.0 (<< 4.6),
+ cinnamon-common (<< 4.8),
+ cinnamon-screensaver (<< 4.8),
+ gir1.2-meta-muffin-0.0 (<< 4.8),
 
 Package: gir1.2-cvc-1.0
 Section: introspection
@@ -66,7 +66,7 @@ Depends: ${gir:Depends}, ${misc:Depends}, ${shlibs:Depends}
 Description: Introspection data for Cinnamon pulseaudio abstraction
  This package contains the introspection data for Cinnamon pulseaudio
  abstraction.
-Breaks: cinnamon (<< 4.6), cinnamon-settings-daemon (<< 4.6)
+Breaks: cinnamon (<< 4.8), cinnamon-settings-daemon (<< 4.8)
 
 Package: libcinnamon-desktop-dev
 Section: libdevel
@@ -83,7 +83,7 @@ Depends:
 Description: Cinnamon library for loading .desktop files - development files
  This package provides the include files and static library for the Cinnamon
  desktop library functions.
-Breaks: libmuffin-dev (<< 4.6)
+Breaks: libmuffin-dev (<< 4.8)
 
 Package: libcinnamon-desktop4
 Section: libs
@@ -96,10 +96,10 @@ Depends:
  ${shlibs:Depends},
 Recommends: hwdata (>= 0.227-1)
 Breaks:
- cinnamon-control-center (<< 4.6),
- cinnamon-settings-daemon (<< 4.6),
- libcinnamon-control-center1 (<< 4.6),
- nemo (<< 4.0),
+ cinnamon-control-center (<< 4.8),
+ cinnamon-settings-daemon (<< 4.8),
+ libcinnamon-control-center1 (<< 4.8),
+ nemo (<< 4.8),
 Description: Cinnamon library for loading .desktop files
  This library is used by Cinnamon to load the .desktop files.
 
@@ -113,4 +113,4 @@ Description: Cinnamon pulseaudio abstraction library
  based library, shared between cinnamon-control-center, cinnamon-settings-daemon
  and cinnamon. It is not API stable, and it is meant to be used
  as a submodule.
-Breaks: cinnamon-settings-daemon (<< 4.6)
+Breaks: cinnamon-settings-daemon (<< 4.8)
