@@ -1,4 +1,4 @@
-cinnamon-desktop (4.8.0-1~) UNRELEASED; urgency=medium
+cinnamon-desktop (4.8.0-1) experimental; urgency=medium
 
   [ Fabio Fantoni ]
   * Bump debhelper compat level to 12.
@@ -11,7 +11,7 @@ cinnamon-desktop (4.8.0-1~) UNRELEASED; urgency=medium
   * Bump debhelper compat level to 13.
   * Bump breaks to << 4.8 to ensure locked update.
 
- -- Norbert Preining <norbert@preining.info>  Tue, 01 Dec 2020 08:31:11 +0900
+ -- Norbert Preining <norbert@preining.info>  Tue, 01 Dec 2020 08:31:43 +0900
 
 cinnamon-desktop (4.6.3-1) unstable; urgency=medium
 
