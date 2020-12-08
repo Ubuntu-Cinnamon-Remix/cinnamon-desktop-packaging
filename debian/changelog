@@ -1,3 +1,9 @@
+cinnamon-desktop (4.8.1-1) experimental; urgency=medium
+
+  * New upstream version 4.8.1
+
+ -- Norbert Preining <norbert@preining.info>  Tue, 08 Dec 2020 19:41:15 +0900
+
 cinnamon-desktop (4.8.0-1) experimental; urgency=medium
 
   [ Fabio Fantoni ]
